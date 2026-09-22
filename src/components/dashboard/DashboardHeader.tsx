@@ -12,7 +12,7 @@ export function DashboardHeader({ title, subtitle }: DashboardHeaderProps) {
   const { user, role, signOut } = useAuth();
 
   return (
-    <header className="relative flex flex-col gap-4 border-b border-border bg-card px-4 py-5 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <header className="relative flex flex-col gap-4 border-b border-border bg-card px-4 py-5 lg:h-[105px] lg:flex-row lg:items-center lg:justify-between lg:py-0 lg:px-8">
       <div className="min-w-0">
         <h1 className="text-xl font-semibold tracking-tight text-foreground lg:text-2xl">
           {title}

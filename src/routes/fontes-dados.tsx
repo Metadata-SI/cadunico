@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Database, Filter, Rows3, ShieldCheck } from "lucide-react";
+import { Database, Filter, Rows3, ShieldAlert, ShieldCheck } from "lucide-react";
 import { BarChartCard } from "@/components/dashboard/BarChartCard";
 import { DonutChartCard } from "@/components/dashboard/DonutChartCard";
 import { SectionTitle } from "@/components/dashboard/SectionTitle";
 import { useFilters } from "@/components/dashboard/filters-context";
 import { useDashboardData } from "@/lib/dashboard-data";
+import { FONTES_DADOS_ALLOWED_EMAIL, useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/fontes-dados")({
   head: () => ({
@@ -20,6 +21,24 @@ export const Route = createFileRoute("/fontes-dados")({
 });
 
 function FontesDadosPage() {
+  const { user } = useAuth();
+
+  if (user?.email?.toLowerCase() !== FONTES_DADOS_ALLOWED_EMAIL.toLowerCase()) {
+    return (
+      <div className="panel flex flex-col items-center gap-3 p-10 text-center">
+        <ShieldAlert className="size-8 text-muted-foreground" aria-hidden />
+        <h1 className="text-lg font-semibold text-foreground">Acesso restrito</h1>
+        <p className="max-w-sm text-sm text-muted-foreground">
+          Esta área é exclusiva para um usuário específico do observatório.
+        </p>
+      </div>
+    );
+  }
+
+  return <FontesDadosContent />;
+}
+
+function FontesDadosContent() {
   const { filters } = useFilters();
   const { data, loading, error } = useDashboardData(filters);
   const people = data.visaoGeralCards.find((card) => card.id === "pessoas")?.value || 0;

@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+ import { createClient } from "@supabase/supabase-js";
 
 /** Só deve ser importado em código server-side (src/routes/api/**\/*.ts). */
 function env(name: string) {

@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatDate } from "@/utils/format";
+import { FONTES_DADOS_ALLOWED_EMAIL, useAuth } from "@/lib/auth-context";
 
 export interface NavItem {
   to: string;
@@ -56,6 +57,12 @@ export interface SidebarProps {
 }
 
 export function Sidebar({ onNavigate, collapsed = false, lastUpdate }: SidebarProps) {
+  const { user } = useAuth();
+  const canSeeFontesDados = user?.email?.toLowerCase() === FONTES_DADOS_ALLOWED_EMAIL.toLowerCase();
+  const items = canSeeFontesDados
+    ? navItems
+    : navItems.filter((item) => item.to !== "/fontes-dados");
+
   return (
     <div className="flex h-full flex-col bg-sidebar text-sidebar-foreground">
       <div
@@ -76,7 +83,7 @@ export function Sidebar({ onNavigate, collapsed = false, lastUpdate }: SidebarPr
       </div>
       <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Módulos do observatório">
         <ul className="flex flex-col gap-1">
-          {navItems.map((item) => (
+          {items.map((item) => (
             <li key={item.to}>
               <Link
                 to={item.to}

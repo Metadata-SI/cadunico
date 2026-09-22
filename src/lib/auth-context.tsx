@@ -4,6 +4,9 @@ import { supabase } from "@/lib/supabase";
 
 export type UserRole = "admin" | "usuario";
 
+/** Único e-mail com acesso à aba "Fontes de Dados". */
+export const FONTES_DADOS_ALLOWED_EMAIL = "dashboard@metadatasi.com.br";
+
 interface AuthContextValue {
   session: Session | null;
   user: User | null;
