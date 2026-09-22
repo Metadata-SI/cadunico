@@ -27,10 +27,12 @@ export const Route = createFileRoute("/perfil-populacao")({
 
 function PerfilPopulacaoPage() {
   const { filters } = useFilters();
-  const { data: { perfilCorRaca, perfilFaixaEtaria, perfilParentesco, perfilPopulacaoCards, perfilSexo } } = useDashboardData(filters);
+  const {
+    data: { perfilCorRaca, perfilFaixaEtaria, perfilParentesco, perfilPopulacaoCards, perfilSexo },
+  } = useDashboardData(filters);
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {perfilPopulacaoCards.map((card) => (
           <MetricCard
             key={card.id}
@@ -47,23 +49,27 @@ function PerfilPopulacaoPage() {
           title="Composição demográfica"
           description="Distribuição da população cadastrada por sexo, idade, cor ou raça e vínculo familiar."
         />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <DonutChartCard title="Sexo" description="Distribuição por sexo" data={perfilSexo} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <DonutChartCard
+            title="Sexo"
+            description="Distribuição por sexo."
+            data={perfilSexo}
+            height={320}
+          />
           <BarChartCard
             title="Faixa etária"
-            description="Pessoas por grupos etários.
-"
+            description="Pessoas por grupos etários."
             data={perfilFaixaEtaria}
             orientation="vertical"
             multicolor
-            height={300}
+            height={320}
           />
           <BarChartCard
             title="Cor ou raça"
             description="Autodeclaração racial da população cadastrada."
             data={perfilCorRaca}
             multicolor
-            height={300}
+            height={320}
           />
           <BarChartCard
             title="Parentesco"
@@ -71,7 +77,7 @@ function PerfilPopulacaoPage() {
             data={perfilParentesco}
             orientation="vertical"
             multicolor
-            height={300}
+            height={380}
           />
         </div>
       </section>

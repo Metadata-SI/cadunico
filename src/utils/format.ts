@@ -23,6 +23,14 @@ export function formatValue(value: number, format: ValueFormat = "integer") {
   }
 }
 
+const dateFormatter = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short" });
+
+/** Formata uma data ISO (ex. do Supabase) como dd/mm/aaaa; mantém o texto original se não for uma data válida. */
+export function formatDate(value: string) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
+}
+
 export function formatCompact(value: number) {
   return new Intl.NumberFormat("pt-BR", {
     notation: "compact",

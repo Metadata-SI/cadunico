@@ -32,23 +32,35 @@ function RendaPage() {
   const { filters } = useFilters();
   const { data } = useDashboardData(filters);
   const { data: despesasEstatisticas } = useExpenseStatistics(filters);
-  const { despesasFamiliares, faixaRendaFamiliar, indicadoresVulnerabilidade, pbfDistribuicao, rendaCards, rendaMediaPorRegiao } = data;
+  const {
+    despesasFamiliares,
+    faixaRendaFamiliar,
+    indicadoresVulnerabilidade,
+    pbfDistribuicao,
+    rendaCards,
+    rendaMediaPorRegiao,
+  } = data;
   const destaques = indicadoresVulnerabilidade.filter((item) =>
     ["extrema-pobreza", "pobreza", "inseguranca-alimentar", "violacao-direitos"].includes(item.id),
   );
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <section className="flex flex-wrap gap-4">
         {rendaCards.map((card) => (
-          <MetricCard
+          <div
             key={card.id}
-            label={card.label}
-            value={card.value}
-            hint={card.hint}
-            icon={card.icon}
-            {...(card.format ? { format: card.format } : {})}
-          />
+            className="min-w-[240px] flex-1 basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.75rem)] xl:basis-[calc(20%-0.8rem)]"
+          >
+            <MetricCard
+              label={card.label}
+              value={card.value}
+              hint={card.hint}
+              icon={card.icon}
+              className="h-full"
+              {...(card.format ? { format: card.format } : {})}
+            />
+          </div>
         ))}
       </section>
 
@@ -57,12 +69,12 @@ function RendaPage() {
           title="Renda das famílias"
           description="Distribuição da renda per capita e comparativo entre as zonas da cidade."
         />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BarChartCard
             title="Distribuição das famílias por renda per capita"
             description="Famílias por faixa de renda per capita."
             data={faixaRendaFamiliar}
-            height={300}
+            height={320}
           />
           <BarChartCard
             title="Renda média por zona"
@@ -71,21 +83,23 @@ function RendaPage() {
             orientation="vertical"
             valueFormat="currency"
             multicolor
-            height={300}
+            height={320}
           />
+          <div className="md:col-span-2">
+            <ExpenseStatisticsChart data={despesasEstatisticas} />
+          </div>
           <BarChartCard
             title="Principais despesas das famílias"
             description="Número de famílias que declaram cada tipo de despesa."
             data={despesasFamiliares}
             orientation="vertical"
-            height={320}
+            height={340}
           />
-          <ExpenseStatisticsChart data={despesasEstatisticas} />
           <DonutChartCard
             title="Beneficiários e não beneficiários do PBF"
             description="Cobertura do Programa Bolsa Família entre as famílias cadastradas."
             data={pbfDistribuicao}
-            height={320}
+            height={340}
           />
         </div>
       </section>
@@ -95,7 +109,7 @@ function RendaPage() {
           title="Vulnerabilidades associadas à renda"
           description="Situações que exigem atenção prioritária da rede socioassistencial."
         />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {destaques.map((indicator) => (
             <IndicatorCard key={indicator.id} indicator={indicator} />
           ))}

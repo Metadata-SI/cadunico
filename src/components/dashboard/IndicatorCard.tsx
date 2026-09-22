@@ -51,10 +51,10 @@ export function IndicatorCard({ indicator, className }: IndicatorCardProps) {
       </span>
       <div className="min-w-0">
         <p className="text-xs font-medium leading-snug text-muted-foreground">{indicator.label}</p>
-        <p className="mt-1 text-xl font-semibold tracking-tight text-foreground">
+        <p className="mt-1 text-xl font-semibold tracking-tight text-foreground tabular-nums">
           {formatValue(indicator.value)}
         </p>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground tabular-nums">
           {formatValue(indicator.percent, "percent")} · {indicator.unit}
         </p>
       </div>

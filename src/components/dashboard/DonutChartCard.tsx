@@ -18,22 +18,24 @@ export function DonutChartCard({
   description,
   meta,
   data,
-  height = 280,
+  height,
   className,
 }: DonutChartCardProps) {
   const total = sum(data);
+  const minHeight = data.length > 6 ? 320 + Math.ceil(data.length / 3) * 22 : 300;
+  const chartHeight = height ? Math.max(height, minHeight) : minHeight;
 
   return (
     <ChartCard title={title} description={description} meta={meta} className={className}>
-      <div style={{ height }}>
+      <div style={{ height: chartHeight }} className="w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
+          <PieChart margin={{ top: 8, right: 8, bottom: 8, left: 8 }}>
             <Pie
               data={data}
               dataKey="value"
               nameKey="label"
-              innerRadius="55%"
-              outerRadius="80%"
+              innerRadius="50%"
+              outerRadius="75%"
               paddingAngle={2}
               stroke="var(--color-card)"
               strokeWidth={2}
@@ -52,6 +54,7 @@ export function DonutChartCard({
             <Legend
               verticalAlign="bottom"
               iconType="circle"
+              wrapperStyle={{ paddingTop: "12px" }}
               formatter={(value) => (
                 <span className="text-xs text-muted-foreground">{String(value)}</span>
               )}

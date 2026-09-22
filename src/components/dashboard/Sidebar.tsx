@@ -4,6 +4,7 @@ import {
   Baby,
   BarChart3,
   Building2,
+  CalendarClock,
   Database,
   GraduationCap,
   HandCoins,
@@ -11,8 +12,6 @@ import {
   LayoutDashboard,
   Map,
   Network,
-  PanelLeft,
-  PanelLeftClose,
   Tent,
   Users,
   UsersRound,
@@ -20,6 +19,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { formatDate } from "@/utils/format";
 
 export interface NavItem {
   to: string;
@@ -51,39 +51,27 @@ export interface SidebarProps {
   onNavigate?: () => void;
   /** Quando true, exibe apenas os ícones (menu recolhido). */
   collapsed?: boolean;
-  /** Exibe o botão de recolher/expandir quando informado. */
-  onToggleCollapse?: () => void;
+  /** Data da última carga de dados (ISO), exibida no rodapé. */
+  lastUpdate?: string;
 }
 
-export function Sidebar({ onNavigate, collapsed = false, onToggleCollapse }: SidebarProps) {
+export function Sidebar({ onNavigate, collapsed = false, lastUpdate }: SidebarProps) {
   return (
     <div className="flex h-full flex-col bg-sidebar text-sidebar-foreground">
       <div
         className={cn(
-          "flex items-center border-b border-sidebar-border px-5 py-5",
-          collapsed ? "justify-center px-2" : "justify-between gap-2",
+          "flex h-[105px] items-center gap-3 border-b border-sidebar-border px-5",
+          collapsed && "justify-center px-2",
         )}
       >
+        <img src="/logo-icone-natal.png" alt="" className="h-10 w-auto shrink-0" />
         {!collapsed && (
           <div className="min-w-0">
             <p className="truncate text-base font-semibold tracking-tight">Observatório Social</p>
-            <p className="mt-1 truncate text-xs text-sidebar-foreground/70">Cadastro Único — Natal/RN</p>
+            <p className="mt-1 truncate text-xs text-sidebar-foreground/70">
+              Cadastro Único — Natal/RN
+            </p>
           </div>
-        )}
-        {onToggleCollapse && (
-          <button
-            type="button"
-            onClick={onToggleCollapse}
-            aria-label={collapsed ? "Expandir menu lateral" : "Recolher menu lateral"}
-            aria-expanded={!collapsed}
-            className="flex size-7 shrink-0 items-center justify-center rounded-md text-sidebar-foreground/60 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-          >
-            {collapsed ? (
-              <PanelLeft className="size-4" aria-hidden />
-            ) : (
-              <PanelLeftClose className="size-4" aria-hidden />
-            )}
-          </button>
         )}
       </div>
       <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Módulos do observatório">
@@ -96,12 +84,12 @@ export function Sidebar({ onNavigate, collapsed = false, onToggleCollapse }: Sid
                 activeOptions={{ exact: item.to === "/" }}
                 title={collapsed ? item.label : undefined}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                  "flex items-center gap-3 rounded-lg border-l-2 border-transparent px-2.5 py-2 text-sm font-medium text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                   collapsed && "justify-center px-2",
                 )}
                 activeProps={{
                   className:
-                    "bg-sidebar-primary/18 text-sidebar-accent-foreground ring-1 ring-sidebar-border",
+                    "border-sidebar-primary bg-sidebar-primary/18 text-sidebar-accent-foreground",
                 }}
               >
                 <item.icon className="size-4 shrink-0" aria-hidden />
@@ -112,9 +100,21 @@ export function Sidebar({ onNavigate, collapsed = false, onToggleCollapse }: Sid
         </ul>
       </nav>
       {!collapsed && (
-        <p className="border-t border-sidebar-border px-5 py-4 text-xs leading-relaxed text-sidebar-foreground/60">
-          Dados agregados. Nenhuma informação individual é exibida.
-        </p>
+        <div className="border-t border-sidebar-border px-5 py-4">
+          {lastUpdate && (
+            <div className="flex items-center gap-2.5 rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
+              <CalendarClock className="size-4 shrink-0 text-sidebar-primary" aria-hidden />
+              <div className="min-w-0">
+                <p className="text-[10px] font-medium text-sidebar-foreground/60">
+                  Última atualização dos dados
+                </p>
+                <p className="truncate text-xs font-semibold tabular-nums text-sidebar-foreground">
+                  {formatDate(lastUpdate)}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

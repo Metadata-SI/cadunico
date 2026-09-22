@@ -18,7 +18,8 @@ export const Route = createFileRoute("/criancas-adolescentes")({
       { property: "og:title", content: "Crianças e Adolescentes — Natal/RN" },
       {
         property: "og:description",
-        content: "Indicadores sobre crianças e adolescentes cadastrados no Cadastro Único de Natal/RN.",
+        content:
+          "Indicadores sobre crianças e adolescentes cadastrados no Cadastro Único de Natal/RN.",
       },
     ],
   }),
@@ -27,22 +28,65 @@ export const Route = createFileRoute("/criancas-adolescentes")({
 
 function CriancasPage() {
   const { filters } = useFilters();
-  const { data: { criancasAtendimento, criancasCards, criancasFaixaEtaria, criancasPorZona, trabalhoInfantilPorZona } } = useDashboardData(filters);
+  const {
+    data: {
+      criancasAtendimento,
+      criancasCards,
+      criancasFaixaEtaria,
+      criancasPorZona,
+      trabalhoInfantilPorZona,
+    },
+  } = useDashboardData(filters);
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {criancasCards.map((card) => (
-          <MetricCard key={card.id} label={card.label} value={card.value} hint={card.hint} icon={card.icon} />
+          <MetricCard
+            key={card.id}
+            label={card.label}
+            value={card.value}
+            hint={card.hint}
+            icon={card.icon}
+          />
         ))}
       </section>
 
       <section className="flex flex-col gap-4">
-        <SectionTitle title="Crianças e adolescentes" description="Distribuição etária e acesso à educação na população jovem cadastrada." />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <BarChartCard title="Faixa etária" description="Pessoas de 0 a 17 anos por faixa etária." data={criancasFaixaEtaria} orientation="vertical" multicolor height={260} />
-          <DonutChartCard title="Modalidade de atendimento" description="Local de escolarização e acesso dos jovens cadastrados." data={criancasAtendimento} height={260} />
-          <BarChartCard title="Crianças e adolescentes por zona" description="População de até 17 anos cadastrada em cada zona." data={criancasPorZona} orientation="vertical" multicolor height={260} />
-          <BarChartCard title="Trabalho infantil por zona" description="Marcações de trabalho infantil em cada zona." data={trabalhoInfantilPorZona} orientation="vertical" multicolor height={260} />
+        <SectionTitle
+          title="Crianças e adolescentes"
+          description="Distribuição etária e acesso à educação na população jovem cadastrada."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <BarChartCard
+            title="Faixa etária"
+            description="Pessoas de 0 a 17 anos por faixa etária."
+            data={criancasFaixaEtaria}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <DonutChartCard
+            title="Modalidade de atendimento"
+            description="Local de escolarização e acesso dos jovens cadastrados."
+            data={criancasAtendimento}
+            height={320}
+          />
+          <BarChartCard
+            title="Crianças e adolescentes por zona"
+            description="População de até 17 anos cadastrada em cada zona."
+            data={criancasPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <BarChartCard
+            title="Trabalho infantil por zona"
+            description="Marcações de trabalho infantil em cada zona."
+            data={trabalhoInfantilPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
         </div>
       </section>
     </div>

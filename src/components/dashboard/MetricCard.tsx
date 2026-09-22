@@ -99,14 +99,15 @@ export function MetricCard({
   const Icon = icons[icon];
 
   return (
-    <article className={cn("panel flex flex-col gap-3 p-5", className)}>
+    <article className={cn("panel group relative flex flex-col gap-3 overflow-hidden p-5", className)}>
+      <span className="absolute inset-x-0 top-0 h-0.5 scale-x-0 bg-primary transition-transform duration-200 group-hover:scale-x-100" />
       <div className="flex items-start justify-between gap-3">
         <p className="text-sm font-medium leading-snug text-muted-foreground">{label}</p>
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-primary/5 text-primary ring-1 ring-primary/10">
           <Icon className="size-4.5" aria-hidden />
         </span>
       </div>
-      <p className="text-2xl font-semibold tracking-tight text-foreground lg:text-3xl">
+      <p className="text-2xl font-semibold tracking-tight text-foreground tabular-nums lg:text-3xl">
         {formatValue(value, format)}
         {suffix ? <span className="ml-1 text-base font-medium text-muted-foreground">{suffix}</span> : null}
       </p>

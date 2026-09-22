@@ -87,13 +87,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0a0c32" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.svg?v=2", type: "image/svg+xml" },
+      { rel: "icon", href: "/logo-favicon.png?v=3", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/logo-favicon.png?v=3" },
     ],
   }),
   shellComponent: RootShell,
