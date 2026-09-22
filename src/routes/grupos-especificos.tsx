@@ -17,7 +17,8 @@ export const Route = createFileRoute("/grupos-especificos")({
       { property: "og:title", content: "Grupos Específicos — Natal/RN" },
       {
         property: "og:description",
-        content: "Indicadores de povos e comunidades tradicionais cadastrados no Cadastro Único de Natal/RN.",
+        content:
+          "Indicadores de povos e comunidades tradicionais cadastrados no Cadastro Único de Natal/RN.",
       },
     ],
   }),
@@ -26,18 +27,35 @@ export const Route = createFileRoute("/grupos-especificos")({
 
 function GruposPage() {
   const { filters } = useFilters();
-  const { data: { gruposCards, gruposIndigenasPorZona, gruposPorZona, gruposQuilombolasPorZona, gruposTradicionais } } = useDashboardData(filters);
+  const {
+    data: {
+      gruposCards,
+      gruposIndigenasPorZona,
+      gruposPorZona,
+      gruposQuilombolasPorZona,
+      gruposTradicionais,
+    },
+  } = useDashboardData(filters);
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {gruposCards.map((card) => (
-          <MetricCard key={card.id} label={card.label} value={card.value} hint={card.hint} icon={card.icon} />
+          <MetricCard
+            key={card.id}
+            label={card.label}
+            value={card.value}
+            hint={card.hint}
+            icon={card.icon}
+          />
         ))}
       </section>
 
       <section className="flex flex-col gap-4">
-        <SectionTitle title="Grupos específicos" description="Povos e comunidades tradicionais no Cadastro Único." />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+        <SectionTitle
+          title="Grupos específicos"
+          description="Povos e comunidades tradicionais no Cadastro Único."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BarChartCard
             title="Grupos tradicionais"
             description="Famílias e pessoas por grupos específicos."
@@ -46,9 +64,30 @@ function GruposPage() {
             multicolor
             height={Math.max(320, gruposTradicionais.length * 36 + 48)}
           />
-          <BarChartCard title="Grupos específicos por zona" description="Registros de grupos tradicionais em cada zona." data={gruposPorZona} orientation="vertical" multicolor height={300} />
-          <BarChartCard title="Famílias indígenas por zona" description="Famílias com identificação indígena em cada zona." data={gruposIndigenasPorZona} orientation="vertical" multicolor height={300} />
-          <BarChartCard title="Famílias quilombolas por zona" description="Famílias com identificação quilombola em cada zona." data={gruposQuilombolasPorZona} orientation="vertical" multicolor height={300} />
+          <BarChartCard
+            title="Grupos específicos por zona"
+            description="Registros de grupos tradicionais em cada zona."
+            data={gruposPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <BarChartCard
+            title="Famílias indígenas por zona"
+            description="Famílias com identificação indígena em cada zona."
+            data={gruposIndigenasPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <BarChartCard
+            title="Famílias quilombolas por zona"
+            description="Famílias com identificação quilombola em cada zona."
+            data={gruposQuilombolasPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
         </div>
       </section>
     </div>

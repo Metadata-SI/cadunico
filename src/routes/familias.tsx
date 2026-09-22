@@ -29,19 +29,30 @@ export const Route = createFileRoute("/familias")({
 function FamiliasPage() {
   const { filters } = useFilters();
   const { data } = useDashboardData(filters);
-  const { estadoCadastral, familiasCards, familiasPorRegiao, pessoasPorDomicilio, tempoUltimaAtualizacao } = data;
+  const {
+    estadoCadastral,
+    familiasCards,
+    familiasPorRegiao,
+    pessoasPorDomicilio,
+    tempoUltimaAtualizacao,
+  } = data;
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <section className="flex flex-wrap gap-4">
         {familiasCards.map((card) => (
-          <MetricCard
+          <div
             key={card.id}
-            label={card.label}
-            value={card.value}
-            hint={card.hint}
-            icon={card.icon}
-            {...(card.format ? { format: card.format } : {})}
-          />
+            className="min-w-[240px] flex-1 basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.75rem)] xl:basis-[calc(20%-0.8rem)]"
+          >
+            <MetricCard
+              label={card.label}
+              value={card.value}
+              hint={card.hint}
+              icon={card.icon}
+              className="h-full"
+              {...(card.format ? { format: card.format } : {})}
+            />
+          </div>
         ))}
       </section>
 
@@ -50,28 +61,32 @@ function FamiliasPage() {
           title="Indicadores familiares"
           description="Distribuição das famílias por território, composição e situação cadastral."
         />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BarChartCard
             title="Famílias por zona de Natal"
             description="Total de famílias cadastradas em cada zona da cidade."
             data={familiasPorRegiao}
             orientation="vertical"
             multicolor
+            height={320}
           />
           <BarChartCard
             title="Quantidade de pessoas por domicílio"
             description="Composição dos domicílios cadastrados."
             data={pessoasPorDomicilio}
+            height={320}
           />
           <BarChartCard
             title="Tempo desde a última atualização cadastral"
             description="Famílias por intervalo de tempo desde a última atualização."
             data={tempoUltimaAtualizacao}
+            height={320}
           />
           <DonutChartCard
             title="Estado cadastral da família"
             description="Proporção de cadastros atualizados e desatualizados."
             data={estadoCadastral}
+            height={320}
           />
         </div>
       </section>

@@ -18,7 +18,8 @@ export const Route = createFileRoute("/rede-socioassistencial")({
       { property: "og:title", content: "Rede Socioassistencial — Natal/RN" },
       {
         property: "og:description",
-        content: "Cobertura territorial dos equipamentos e serviços socioassistenciais de Natal/RN.",
+        content:
+          "Cobertura territorial dos equipamentos e serviços socioassistenciais de Natal/RN.",
       },
     ],
   }),
@@ -27,22 +28,65 @@ export const Route = createFileRoute("/rede-socioassistencial")({
 
 function RedePage() {
   const { filters } = useFilters();
-  const { data: { redeAtendimentosPorBairro, redeAtendimentosPorZona, redeCards, redeCobertura, redeFamiliasPorEquipamento } } = useDashboardData(filters);
+  const {
+    data: {
+      redeAtendimentosPorBairro,
+      redeAtendimentosPorZona,
+      redeCards,
+      redeCobertura,
+      redeFamiliasPorEquipamento,
+    },
+  } = useDashboardData(filters);
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {redeCards.map((card) => (
-          <MetricCard key={card.id} label={card.label} value={card.value} hint={card.hint} icon={card.icon} />
+          <MetricCard
+            key={card.id}
+            label={card.label}
+            value={card.value}
+            hint={card.hint}
+            icon={card.icon}
+          />
         ))}
       </section>
 
       <section className="flex flex-col gap-4">
-        <SectionTitle title="Cobertura da rede" description="Estrutura da assistência social da cidade e serviços vinculados." />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <DonutChartCard title="Equipamentos de atendimento" description="Composição da rede socioassistencial." data={redeCobertura} height={300} />
-          <BarChartCard title="Famílias por equipamento" description="Famílias vinculadas aos principais equipamentos informados." data={redeFamiliasPorEquipamento} orientation="vertical" multicolor height={380} />
-          <BarChartCard title="Atendimentos por zona" description="Registros de serviços socioassistenciais em cada zona." data={redeAtendimentosPorZona} orientation="vertical" multicolor height={300} />
-          <BarChartCard title="Atendimentos por bairro" description="Dez bairros com maior número de serviços registrados." data={redeAtendimentosPorBairro} orientation="vertical" multicolor height={420} />
+        <SectionTitle
+          title="Cobertura da rede"
+          description="Estrutura da assistência social da cidade e serviços vinculados."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <DonutChartCard
+            title="Equipamentos de atendimento"
+            description="Composição da rede socioassistencial."
+            data={redeCobertura}
+            height={320}
+          />
+          <BarChartCard
+            title="Famílias por equipamento"
+            description="Famílias vinculadas aos principais equipamentos informados."
+            data={redeFamiliasPorEquipamento}
+            orientation="vertical"
+            multicolor
+            height={380}
+          />
+          <BarChartCard
+            title="Atendimentos por zona"
+            description="Registros de serviços socioassistenciais em cada zona."
+            data={redeAtendimentosPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <BarChartCard
+            title="Atendimentos por bairro"
+            description="Dez bairros com maior número de serviços registrados."
+            data={redeAtendimentosPorBairro}
+            orientation="vertical"
+            multicolor
+            height={420}
+          />
         </div>
       </section>
     </div>

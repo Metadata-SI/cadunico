@@ -18,7 +18,8 @@ export const Route = createFileRoute("/pessoas-com-deficiencia")({
       { property: "og:title", content: "Pessoas com Deficiência — Natal/RN" },
       {
         property: "og:description",
-        content: "Indicadores sobre pessoas com deficiência cadastradas no Cadastro Único de Natal/RN.",
+        content:
+          "Indicadores sobre pessoas com deficiência cadastradas no Cadastro Único de Natal/RN.",
       },
     ],
   }),
@@ -27,22 +28,65 @@ export const Route = createFileRoute("/pessoas-com-deficiencia")({
 
 function DeficienciaPage() {
   const { filters } = useFilters();
-  const { data: { deficienciaCards, deficienciaCobertura, deficienciaPorBairro, deficienciaPorZona, tipoDeficiencia } } = useDashboardData(filters);
+  const {
+    data: {
+      deficienciaCards,
+      deficienciaCobertura,
+      deficienciaPorBairro,
+      deficienciaPorZona,
+      tipoDeficiencia,
+    },
+  } = useDashboardData(filters);
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {deficienciaCards.map((card) => (
-          <MetricCard key={card.id} label={card.label} value={card.value} hint={card.hint} icon={card.icon} />
+          <MetricCard
+            key={card.id}
+            label={card.label}
+            value={card.value}
+            hint={card.hint}
+            icon={card.icon}
+          />
         ))}
       </section>
 
       <section className="flex flex-col gap-4">
-        <SectionTitle title="Deficiências" description="Tipos de deficiência presentes na população cadastrada." />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <BarChartCard title="Tipos de deficiência" description="Classificação principal das pessoas com deficiência." data={tipoDeficiencia} orientation="vertical" multicolor height={320} />
-          <DonutChartCard title="Cobertura na população" description="Participação das pessoas com deficiência entre os cadastros." data={deficienciaCobertura} height={320} />
-          <BarChartCard title="Pessoas com deficiência por zona" description="Cadastros com marcação de deficiência em cada zona." data={deficienciaPorZona} orientation="vertical" multicolor height={320} />
-          <BarChartCard title="Bairros com mais pessoas com deficiência" description="Dez bairros com maior número de cadastros." data={deficienciaPorBairro} orientation="vertical" multicolor height={420} />
+        <SectionTitle
+          title="Deficiências"
+          description="Tipos de deficiência presentes na população cadastrada."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <BarChartCard
+            title="Tipos de deficiência"
+            description="Classificação principal das pessoas com deficiência."
+            data={tipoDeficiencia}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <DonutChartCard
+            title="Cobertura na população"
+            description="Participação das pessoas com deficiência entre os cadastros."
+            data={deficienciaCobertura}
+            height={320}
+          />
+          <BarChartCard
+            title="Pessoas com deficiência por zona"
+            description="Cadastros com marcação de deficiência em cada zona."
+            data={deficienciaPorZona}
+            orientation="vertical"
+            multicolor
+            height={320}
+          />
+          <BarChartCard
+            title="Bairros com mais pessoas com deficiência"
+            description="Dez bairros com maior número de cadastros."
+            data={deficienciaPorBairro}
+            orientation="vertical"
+            multicolor
+            height={420}
+          />
         </div>
       </section>
     </div>

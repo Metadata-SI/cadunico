@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from "react";
-import { Menu } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { ChevronsLeft, ChevronsRight, Menu } from "lucide-react";
 import { Sidebar } from "./Sidebar";
 import { DashboardHeader } from "./DashboardHeader";
 import { FilterBar } from "./FilterBar";
@@ -16,17 +16,38 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
+  useEffect(() => {
+    // Quando o menu é recolhido ou expandido, dispara evento de resize para recalcular os gráficos e mapas
+    const t1 = setTimeout(() => window.dispatchEvent(new Event("resize")), 100);
+    const t2 = setTimeout(() => window.dispatchEvent(new Event("resize")), 250);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [collapsed]);
+
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex h-screen overflow-hidden bg-background">
       <aside
         className={cn(
-          "hidden shrink-0 border-r border-sidebar-border transition-[width] duration-200 lg:block",
+          "relative hidden shrink-0 border-r border-sidebar-border transition-[width] duration-200 ease-in-out lg:block",
           collapsed ? "w-20" : "w-72",
         )}
       >
-        <div className="sticky top-0 h-screen">
-          <Sidebar collapsed={collapsed} onToggleCollapse={() => setCollapsed((value) => !value)} />
-        </div>
+        <Sidebar collapsed={collapsed} lastUpdate={data.ultimaAtualizacao} />
+        <button
+          type="button"
+          onClick={() => setCollapsed((value) => !value)}
+          aria-label={collapsed ? "Expandir menu lateral" : "Recolher menu lateral"}
+          aria-expanded={!collapsed}
+          className="absolute -right-3.5 top-8 z-10 flex size-7 items-center justify-center rounded-full border border-primary/20 bg-primary text-primary-foreground shadow-card transition-transform hover:scale-105 hover:bg-primary/90"
+        >
+          {collapsed ? (
+            <ChevronsRight className="size-3.5" aria-hidden />
+          ) : (
+            <ChevronsLeft className="size-3.5" aria-hidden />
+          )}
+        </button>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
@@ -39,7 +60,10 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
             </SheetTrigger>
             <SheetContent side="left" className="w-72 border-sidebar-border bg-sidebar p-0">
               <SheetTitle className="sr-only">Menu do observatório</SheetTitle>
-              <Sidebar onNavigate={() => setMobileOpen(false)} />
+              <Sidebar
+                onNavigate={() => setMobileOpen(false)}
+                lastUpdate={data.ultimaAtualizacao}
+              />
             </SheetContent>
           </Sheet>
           <div className="min-w-0">
@@ -51,10 +75,9 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
         <DashboardHeader
           title="Cadastro Único de Natal/RN"
           subtitle="Painel de indicadores socioeconômicos das famílias e pessoas cadastradas."
-          lastUpdate={data.ultimaAtualizacao}
         />
 
-        <main className="flex flex-1 flex-col gap-6 px-4 py-6 lg:px-8 lg:py-8">
+        <main className="flex flex-1 flex-col gap-6 overflow-y-auto px-4 py-6 lg:px-8 lg:py-8">
           <FilterBar filters={filters} onChange={setFilters} onReset={reset} />
           {children}
         </main>

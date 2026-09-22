@@ -49,9 +49,9 @@ export function ExpenseStatisticsChart({ data }: ExpenseStatisticsChartProps) {
             ))}
           </dl>
 
-          <div className="h-[190px]">
+          <div className="h-[280px] w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={selected.distribution} margin={{ top: 4, right: 8, bottom: 58, left: 0 }}>
+              <BarChart data={selected.distribution} margin={{ top: 8, right: 12, bottom: 58, left: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
                 <XAxis
                   dataKey="label"
@@ -59,13 +59,13 @@ export function ExpenseStatisticsChart({ data }: ExpenseStatisticsChartProps) {
                   angle={-35}
                   textAnchor="end"
                   height={70}
-                  tick={{ fontSize: 10, fill: "var(--color-muted-foreground)" }}
+                  tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
                   stroke="var(--color-border)"
                 />
                 <YAxis
-                  width={48}
+                  width={52}
                   allowDecimals={false}
-                  tick={{ fontSize: 10, fill: "var(--color-muted-foreground)" }}
+                  tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
                   tickFormatter={(value: number) => formatValue(value)}
                   stroke="var(--color-border)"
                 />

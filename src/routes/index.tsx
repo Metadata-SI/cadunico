@@ -72,7 +72,7 @@ function VisaoGeral() {
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {visaoGeralCards.map((card) => (
           <MetricCard
             key={card.id}
@@ -90,16 +90,18 @@ function VisaoGeral() {
           title="Indicadores gerais"
           description="Perfil demográfico e de renda das pessoas e famílias cadastradas."
         />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <BarChartCard
             title="População por faixa etária"
             description="Número de pessoas cadastradas por faixa de idade."
             data={faixaEtaria}
+            height={320}
           />
           <DonutChartCard
             title="Distribuição por sexo"
             description="Pessoas cadastradas por sexo declarado."
             data={distribuicaoSexo}
+            height={320}
           />
           <BarChartCard
             title="Cor ou raça"
@@ -107,13 +109,13 @@ function VisaoGeral() {
             data={corRaca}
             orientation="vertical"
             multicolor
-            height={300}
+            height={320}
           />
           <BarChartCard
             title="Faixa de renda familiar per capita"
             description="Famílias por faixa de renda per capita (categorias configuráveis)."
             data={faixaRendaFamiliar}
-            height={300}
+            height={320}
           />
         </div>
       </section>
@@ -123,9 +125,14 @@ function VisaoGeral() {
           title="Indicadores de Vulnerabilidade"
           description="Situações prioritárias para o planejamento da proteção social."
         />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="flex flex-wrap gap-4">
           {indicadoresVulnerabilidade.map((indicator) => (
-            <IndicatorCard key={indicator.id} indicator={indicator} />
+            <div
+              key={indicator.id}
+              className="min-w-[240px] flex-1 basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)]"
+            >
+              <IndicatorCard indicator={indicator} className="h-full" />
+            </div>
           ))}
         </div>
       </section>
@@ -135,7 +142,7 @@ function VisaoGeral() {
           title="Distribuição Territorial"
           description="Concentração de famílias cadastradas por bairro."
         />
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <FamilyConcentrationMap rows={rows} />
           <BarChartCard
             title="Bairros com maior número de famílias cadastradas"
@@ -143,7 +150,7 @@ function VisaoGeral() {
             data={bairrosTop}
             orientation="vertical"
             multicolor
-            height={320}
+            height={404}
           />
         </div>
       </section>
