@@ -4,15 +4,21 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
+  useNavigate,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Loader2 } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { FiltersProvider } from "@/components/dashboard/filters-context";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { AuthProvider, useAuth } from "@/lib/auth-context";
+import { ForcePasswordChangeDialog } from "@/components/dashboard/ForcePasswordChangeDialog";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -112,6 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Toaster position="top-right" />
         <Scripts />
       </body>
     </html>
@@ -123,12 +130,45 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <FiltersProvider>
-        <DashboardLayout>
+      <AuthProvider>
+        <AuthGate>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
-        </DashboardLayout>
-      </FiltersProvider>
+        </AuthGate>
+      </AuthProvider>
     </QueryClientProvider>
+  );
+}
+
+/** Exibe a tela de login sem o menu do painel e bloqueia as demais rotas até haver sessão. */
+function AuthGate({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const { session, loading, mustChangePassword } = useAuth();
+  const navigate = useNavigate();
+  const isLoginRoute = pathname === "/login";
+
+  useEffect(() => {
+    if (!loading && !session && !isLoginRoute) {
+      navigate({ to: "/login", replace: true });
+    }
+  }, [loading, session, isLoginRoute, navigate]);
+
+  if (isLoginRoute) {
+    return <>{children}</>;
+  }
+
+  if (loading || !session) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <Loader2 className="size-6 animate-spin text-muted-foreground" aria-hidden />
+      </div>
+    );
+  }
+
+  return (
+    <FiltersProvider>
+      <DashboardLayout>{children}</DashboardLayout>
+      {mustChangePassword ? <ForcePasswordChangeDialog /> : null}
+    </FiltersProvider>
   );
 }

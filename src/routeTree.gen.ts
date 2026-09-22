@@ -17,6 +17,7 @@ import { Route as EducacaoRouteImport } from './routes/educacao'
 import { Route as FamiliasRouteImport } from './routes/familias'
 import { Route as FontesDadosRouteImport } from './routes/fontes-dados'
 import { Route as GruposEspecificosRouteImport } from './routes/grupos-especificos'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapasRouteImport } from './routes/mapas'
 import { Route as PerfilPopulacaoRouteImport } from './routes/perfil-populacao'
 import { Route as PessoasComDeficienciaRouteImport } from './routes/pessoas-com-deficiencia'
@@ -24,8 +25,11 @@ import { Route as RedeSocioassistencialRouteImport } from './routes/rede-socioas
 import { Route as RendaVulnerabilidadeRouteImport } from './routes/renda-vulnerabilidade'
 import { Route as SituacaoRuaRouteImport } from './routes/situacao-rua'
 import { Route as TrabalhoRendaRouteImport } from './routes/trabalho-renda'
+import { Route as UsuariosRouteImport } from './routes/usuarios'
+import { Route as ApiAdminUsersRouteImport } from './routes/api/admin-users'
 import { Route as ApiDashboardCubeRouteImport } from './routes/api/dashboard-cube'
 import { Route as ApiExpenseStatisticsRouteImport } from './routes/api/expense-statistics'
+import { Route as ApiFirstLoginRouteImport } from './routes/api/first-login'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -67,6 +71,11 @@ const GruposEspecificosRoute = GruposEspecificosRouteImport.update({
   path: '/grupos-especificos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MapasRoute = MapasRouteImport.update({
   id: '/mapas',
   path: '/mapas',
@@ -102,6 +111,16 @@ const TrabalhoRendaRoute = TrabalhoRendaRouteImport.update({
   path: '/trabalho-renda',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UsuariosRoute = UsuariosRouteImport.update({
+  id: '/usuarios',
+  path: '/usuarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminUsersRoute = ApiAdminUsersRouteImport.update({
+  id: '/api/admin-users',
+  path: '/api/admin-users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDashboardCubeRoute = ApiDashboardCubeRouteImport.update({
   id: '/api/dashboard-cube',
   path: '/api/dashboard-cube',
@@ -110,6 +129,11 @@ const ApiDashboardCubeRoute = ApiDashboardCubeRouteImport.update({
 const ApiExpenseStatisticsRoute = ApiExpenseStatisticsRouteImport.update({
   id: '/api/expense-statistics',
   path: '/api/expense-statistics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFirstLoginRoute = ApiFirstLoginRouteImport.update({
+  id: '/api/first-login',
+  path: '/api/first-login',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -122,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/familias': typeof FamiliasRoute
   '/fontes-dados': typeof FontesDadosRoute
   '/grupos-especificos': typeof GruposEspecificosRoute
+  '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
@@ -129,8 +154,11 @@ export interface FileRoutesByFullPath {
   '/renda-vulnerabilidade': typeof RendaVulnerabilidadeRoute
   '/situacao-rua': typeof SituacaoRuaRoute
   '/trabalho-renda': typeof TrabalhoRendaRoute
+  '/usuarios': typeof UsuariosRoute
+  '/api/admin-users': typeof ApiAdminUsersRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
+  '/api/first-login': typeof ApiFirstLoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -141,6 +169,7 @@ export interface FileRoutesByTo {
   '/familias': typeof FamiliasRoute
   '/fontes-dados': typeof FontesDadosRoute
   '/grupos-especificos': typeof GruposEspecificosRoute
+  '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
@@ -148,8 +177,11 @@ export interface FileRoutesByTo {
   '/renda-vulnerabilidade': typeof RendaVulnerabilidadeRoute
   '/situacao-rua': typeof SituacaoRuaRoute
   '/trabalho-renda': typeof TrabalhoRendaRoute
+  '/usuarios': typeof UsuariosRoute
+  '/api/admin-users': typeof ApiAdminUsersRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
+  '/api/first-login': typeof ApiFirstLoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -161,6 +193,7 @@ export interface FileRoutesById {
   '/familias': typeof FamiliasRoute
   '/fontes-dados': typeof FontesDadosRoute
   '/grupos-especificos': typeof GruposEspecificosRoute
+  '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
@@ -168,8 +201,11 @@ export interface FileRoutesById {
   '/renda-vulnerabilidade': typeof RendaVulnerabilidadeRoute
   '/situacao-rua': typeof SituacaoRuaRoute
   '/trabalho-renda': typeof TrabalhoRendaRoute
+  '/usuarios': typeof UsuariosRoute
+  '/api/admin-users': typeof ApiAdminUsersRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
+  '/api/first-login': typeof ApiFirstLoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -182,6 +218,7 @@ export interface FileRouteTypes {
     | '/familias'
     | '/fontes-dados'
     | '/grupos-especificos'
+    | '/login'
     | '/mapas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
@@ -189,8 +226,11 @@ export interface FileRouteTypes {
     | '/renda-vulnerabilidade'
     | '/situacao-rua'
     | '/trabalho-renda'
+    | '/usuarios'
+    | '/api/admin-users'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
+    | '/api/first-login'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -201,6 +241,7 @@ export interface FileRouteTypes {
     | '/familias'
     | '/fontes-dados'
     | '/grupos-especificos'
+    | '/login'
     | '/mapas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
@@ -208,8 +249,11 @@ export interface FileRouteTypes {
     | '/renda-vulnerabilidade'
     | '/situacao-rua'
     | '/trabalho-renda'
+    | '/usuarios'
+    | '/api/admin-users'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
+    | '/api/first-login'
   id:
     | '__root__'
     | '/'
@@ -220,6 +264,7 @@ export interface FileRouteTypes {
     | '/familias'
     | '/fontes-dados'
     | '/grupos-especificos'
+    | '/login'
     | '/mapas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
@@ -227,8 +272,11 @@ export interface FileRouteTypes {
     | '/renda-vulnerabilidade'
     | '/situacao-rua'
     | '/trabalho-renda'
+    | '/usuarios'
+    | '/api/admin-users'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
+    | '/api/first-login'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -240,6 +288,7 @@ export interface RootRouteChildren {
   FamiliasRoute: typeof FamiliasRoute
   FontesDadosRoute: typeof FontesDadosRoute
   GruposEspecificosRoute: typeof GruposEspecificosRoute
+  LoginRoute: typeof LoginRoute
   MapasRoute: typeof MapasRoute
   PerfilPopulacaoRoute: typeof PerfilPopulacaoRoute
   PessoasComDeficienciaRoute: typeof PessoasComDeficienciaRoute
@@ -247,8 +296,11 @@ export interface RootRouteChildren {
   RendaVulnerabilidadeRoute: typeof RendaVulnerabilidadeRoute
   SituacaoRuaRoute: typeof SituacaoRuaRoute
   TrabalhoRendaRoute: typeof TrabalhoRendaRoute
+  UsuariosRoute: typeof UsuariosRoute
+  ApiAdminUsersRoute: typeof ApiAdminUsersRoute
   ApiDashboardCubeRoute: typeof ApiDashboardCubeRoute
   ApiExpenseStatisticsRoute: typeof ApiExpenseStatisticsRoute
+  ApiFirstLoginRoute: typeof ApiFirstLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -309,6 +361,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GruposEspecificosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mapas': {
       id: '/mapas'
       path: '/mapas'
@@ -358,6 +417,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrabalhoRendaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/usuarios': {
+      id: '/usuarios'
+      path: '/usuarios'
+      fullPath: '/usuarios'
+      preLoaderRoute: typeof UsuariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin-users': {
+      id: '/api/admin-users'
+      path: '/api/admin-users'
+      fullPath: '/api/admin-users'
+      preLoaderRoute: typeof ApiAdminUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/dashboard-cube': {
       id: '/api/dashboard-cube'
       path: '/api/dashboard-cube'
@@ -372,6 +445,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiExpenseStatisticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/first-login': {
+      id: '/api/first-login'
+      path: '/api/first-login'
+      fullPath: '/api/first-login'
+      preLoaderRoute: typeof ApiFirstLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -384,6 +464,7 @@ const rootRouteChildren: RootRouteChildren = {
   FamiliasRoute: FamiliasRoute,
   FontesDadosRoute: FontesDadosRoute,
   GruposEspecificosRoute: GruposEspecificosRoute,
+  LoginRoute: LoginRoute,
   MapasRoute: MapasRoute,
   PerfilPopulacaoRoute: PerfilPopulacaoRoute,
   PessoasComDeficienciaRoute: PessoasComDeficienciaRoute,
@@ -391,8 +472,11 @@ const rootRouteChildren: RootRouteChildren = {
   RendaVulnerabilidadeRoute: RendaVulnerabilidadeRoute,
   SituacaoRuaRoute: SituacaoRuaRoute,
   TrabalhoRendaRoute: TrabalhoRendaRoute,
+  UsuariosRoute: UsuariosRoute,
+  ApiAdminUsersRoute: ApiAdminUsersRoute,
   ApiDashboardCubeRoute: ApiDashboardCubeRoute,
   ApiExpenseStatisticsRoute: ApiExpenseStatisticsRoute,
+  ApiFirstLoginRoute: ApiFirstLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

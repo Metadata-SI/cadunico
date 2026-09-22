@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { ChevronsLeft, ChevronsRight, Menu } from "lucide-react";
 import { Sidebar } from "./Sidebar";
 import { DashboardHeader } from "./DashboardHeader";
@@ -15,6 +16,8 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
   const { data } = useDashboardData(filters);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const showFilters = pathname !== "/usuarios";
 
   useEffect(() => {
     // Quando o menu é recolhido ou expandido, dispara evento de resize para recalcular os gráficos e mapas
@@ -78,7 +81,9 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
         />
 
         <main className="flex flex-1 flex-col gap-6 overflow-y-auto px-4 py-6 lg:px-8 lg:py-8">
-          <FilterBar filters={filters} onChange={setFilters} onReset={reset} />
+          {showFilters ? (
+            <FilterBar filters={filters} onChange={setFilters} onReset={reset} />
+          ) : null}
           {children}
         </main>
       </div>
