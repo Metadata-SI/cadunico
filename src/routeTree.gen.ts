@@ -19,6 +19,7 @@ import { Route as FontesDadosRouteImport } from './routes/fontes-dados'
 import { Route as GruposEspecificosRouteImport } from './routes/grupos-especificos'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapasRouteImport } from './routes/mapas'
+import { Route as MedidasSocioeducativasRouteImport } from './routes/medidas-socioeducativas'
 import { Route as PerfilPopulacaoRouteImport } from './routes/perfil-populacao'
 import { Route as PessoasComDeficienciaRouteImport } from './routes/pessoas-com-deficiencia'
 import { Route as RedeSocioassistencialRouteImport } from './routes/rede-socioassistencial'
@@ -79,6 +80,11 @@ const LoginRoute = LoginRouteImport.update({
 const MapasRoute = MapasRouteImport.update({
   id: '/mapas',
   path: '/mapas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedidasSocioeducativasRoute = MedidasSocioeducativasRouteImport.update({
+  id: '/medidas-socioeducativas',
+  path: '/medidas-socioeducativas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerfilPopulacaoRoute = PerfilPopulacaoRouteImport.update({
@@ -148,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/grupos-especificos': typeof GruposEspecificosRoute
   '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
+  '/medidas-socioeducativas': typeof MedidasSocioeducativasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
   '/rede-socioassistencial': typeof RedeSocioassistencialRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/grupos-especificos': typeof GruposEspecificosRoute
   '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
+  '/medidas-socioeducativas': typeof MedidasSocioeducativasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
   '/rede-socioassistencial': typeof RedeSocioassistencialRoute
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   '/grupos-especificos': typeof GruposEspecificosRoute
   '/login': typeof LoginRoute
   '/mapas': typeof MapasRoute
+  '/medidas-socioeducativas': typeof MedidasSocioeducativasRoute
   '/perfil-populacao': typeof PerfilPopulacaoRoute
   '/pessoas-com-deficiencia': typeof PessoasComDeficienciaRoute
   '/rede-socioassistencial': typeof RedeSocioassistencialRoute
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/grupos-especificos'
     | '/login'
     | '/mapas'
+    | '/medidas-socioeducativas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
     | '/rede-socioassistencial'
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/grupos-especificos'
     | '/login'
     | '/mapas'
+    | '/medidas-socioeducativas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
     | '/rede-socioassistencial'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/grupos-especificos'
     | '/login'
     | '/mapas'
+    | '/medidas-socioeducativas'
     | '/perfil-populacao'
     | '/pessoas-com-deficiencia'
     | '/rede-socioassistencial'
@@ -290,6 +302,7 @@ export interface RootRouteChildren {
   GruposEspecificosRoute: typeof GruposEspecificosRoute
   LoginRoute: typeof LoginRoute
   MapasRoute: typeof MapasRoute
+  MedidasSocioeducativasRoute: typeof MedidasSocioeducativasRoute
   PerfilPopulacaoRoute: typeof PerfilPopulacaoRoute
   PessoasComDeficienciaRoute: typeof PessoasComDeficienciaRoute
   RedeSocioassistencialRoute: typeof RedeSocioassistencialRoute
@@ -373,6 +386,13 @@ declare module '@tanstack/react-router' {
       path: '/mapas'
       fullPath: '/mapas'
       preLoaderRoute: typeof MapasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medidas-socioeducativas': {
+      id: '/medidas-socioeducativas'
+      path: '/medidas-socioeducativas'
+      fullPath: '/medidas-socioeducativas'
+      preLoaderRoute: typeof MedidasSocioeducativasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/perfil-populacao': {
@@ -466,6 +486,7 @@ const rootRouteChildren: RootRouteChildren = {
   GruposEspecificosRoute: GruposEspecificosRoute,
   LoginRoute: LoginRoute,
   MapasRoute: MapasRoute,
+  MedidasSocioeducativasRoute: MedidasSocioeducativasRoute,
   PerfilPopulacaoRoute: PerfilPopulacaoRoute,
   PessoasComDeficienciaRoute: PessoasComDeficienciaRoute,
   RedeSocioassistencialRoute: RedeSocioassistencialRoute,
