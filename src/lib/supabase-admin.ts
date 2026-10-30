@@ -1,4 +1,5 @@
- import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
+import { canAccessFontesDados } from "@/lib/access";
 
 /** Só deve ser importado em código server-side (src/routes/api/**\/*.ts). */
 function env(name: string) {
@@ -23,6 +24,13 @@ export async function getUserFromRequest(request: Request) {
   const { data, error } = await admin.auth.getUser(token);
   if (error || !data.user) return null;
   return data.user;
+}
+
+/** Valida o token da requisição e confirma que o usuário pode acessar a aba Fontes de Dados. */
+export async function requireFontesDadosUser(request: Request) {
+  const user = await getUserFromRequest(request);
+  if (!user || !canAccessFontesDados(user.email)) return null;
+  return user;
 }
 
 /** Valida o token da requisição e confirma que o usuário é admin (app_metadata.role). */

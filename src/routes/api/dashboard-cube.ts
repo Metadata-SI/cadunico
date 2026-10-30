@@ -16,7 +16,7 @@ async function loadCube() {
 
   for (let offset = 0; ; offset += PAGE_SIZE) {
     const response = await fetch(
-      `${base}/rest/v1/excel_rows?select=data&source_file=eq.${SOURCE}&order=row_number&offset=${offset}&limit=${PAGE_SIZE}`,
+      `${base}/rest/v1/excel_rows?select=data&source_file=eq.${SOURCE}&order=sheet_name,row_number&offset=${offset}&limit=${PAGE_SIZE}`,
       {
         headers: { apikey: key },
         cache: "no-store",

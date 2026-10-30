@@ -2,10 +2,9 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 
-export type UserRole = "admin" | "usuario";
+export { FONTES_DADOS_ALLOWED_EMAIL } from "@/lib/access";
 
-/** Único e-mail com acesso à aba "Fontes de Dados". */
-export const FONTES_DADOS_ALLOWED_EMAIL = "dashboard@metadatasi.com.br";
+export type UserRole = "admin" | "usuario";
 
 interface AuthContextValue {
   session: Session | null;

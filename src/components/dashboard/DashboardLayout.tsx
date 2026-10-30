@@ -17,7 +17,7 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const showFilters = pathname !== "/usuarios";
+  const showFilters = pathname !== "/usuarios" && pathname !== "/fontes-dados";
 
   useEffect(() => {
     // Quando o menu é recolhido ou expandido, dispara evento de resize para recalcular os gráficos e mapas

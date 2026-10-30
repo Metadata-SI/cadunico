@@ -1,0 +1,2320 @@
+{
+  "sheetName": "tudo",
+  "columns": [
+    {
+      "index": 0,
+      "letter": "A",
+      "header": "codigo do ibge do municipio",
+      "label": "codigo do ibge do municipio",
+      "field": "cd_ibge",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 1,
+      "letter": "B",
+      "header": "Código familiar",
+      "label": "Código familiar",
+      "field": "d.cod_familiar_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": true
+    },
+    {
+      "index": 2,
+      "letter": "C",
+      "header": "Data de cadastramento da familia",
+      "label": "Data de cadastramento da familia",
+      "field": "d.dat_cadastramento_fam",
+      "values": null,
+      "used": false,
+      "date": true,
+      "required": false
+    },
+    {
+      "index": 3,
+      "letter": "D",
+      "header": "Data da ultima atualizacao da familia",
+      "label": "Data da ultima atualizacao da familia",
+      "field": "d.dat_atual_fam",
+      "values": null,
+      "used": true,
+      "date": true,
+      "required": false
+    },
+    {
+      "index": 4,
+      "letter": "E",
+      "header": "Estado cadastral da familia",
+      "label": "Estado cadastral da familia",
+      "field": "d.cod_est_cadastral_fam",
+      "values": {
+        "2": "Sem Registro Civil",
+        "3": "Cadastrado"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 5,
+      "letter": "F",
+      "header": "Forma de coleta",
+      "label": "Forma de coleta",
+      "field": "d.cod_forma_coleta_fam",
+      "values": {
+        "0": "Informacao migrada como inexistente",
+        "1": "Sem visita Domiciliar",
+        "2": "Com visita domiciliar"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 6,
+      "letter": "G",
+      "header": "Data da entrevista",
+      "label": "Data da entrevista",
+      "field": "d.dta_entrevista_fam",
+      "values": null,
+      "used": false,
+      "date": true,
+      "required": false
+    },
+    {
+      "index": 7,
+      "letter": "H",
+      "header": "REGIÃO / ZONA",
+      "label": "REGIÃO / ZONA",
+      "field": null,
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 8,
+      "letter": "I",
+      "header": "Nome da localidade",
+      "label": "Nome da localidade",
+      "field": "d.nom_localidade_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 9,
+      "letter": "J",
+      "header": "CEP",
+      "label": "CEP",
+      "field": "d.num_cep_logradouro_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 10,
+      "letter": "K",
+      "header": "Nome da unidade territorial local",
+      "label": "Nome da unidade territorial local",
+      "field": "d.nom_unidade_territorial_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 11,
+      "letter": "L",
+      "header": "Valor da renda familiar per capita",
+      "label": "Valor da renda familiar per capita",
+      "field": "d.vlr_renda_media_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 12,
+      "letter": "M",
+      "header": "Faixa da renda familiar per capita",
+      "label": "Faixa da renda familiar per capita",
+      "field": "d.fx_rfpc",
+      "values": {
+        "1": "Ate R$89,00",
+        "2": "Entre R$85,01 ate R$178,00",
+        "3": "Entre R$178,01 ate 1/2 S.M.",
+        "4": "Acima de 1/2 S.M."
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 13,
+      "letter": "N",
+      "header": "Valor da renda total da familia",
+      "label": "Valor da renda total da familia",
+      "field": "d.vlr_renda_total_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 14,
+      "letter": "O",
+      "header": "Recebe PBF familia",
+      "label": "Recebe PBF familia",
+      "field": "d.marc_pbf",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 15,
+      "letter": "P",
+      "header": "Numero de meses apos a ultima atualizacao cadastral",
+      "label": "Numero de meses apos a ultima atualizacao cadastral",
+      "field": "d.qtde_meses_desat_cat",
+      "values": {
+        "0": "ate 12 Meses",
+        "1": "13 a 18 Meses",
+        "2": "19 a 24 Meses",
+        "3": "25 a 36 Meses",
+        "4": "37 a 48 Meses",
+        "5": "acima de 48 Meses"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 16,
+      "letter": "Q",
+      "header": "Situacao do domicilio",
+      "label": "Situacao do domicilio",
+      "field": "d.cod_local_domic_fam",
+      "values": {
+        "1": "Urbanas",
+        "2": "Rurais"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 17,
+      "letter": "R",
+      "header": "Especie do domicilio",
+      "label": "Especie do domicilio",
+      "field": "d.cod_especie_domic_fam",
+      "values": {
+        "1": "Particular Permanente",
+        "2": "Particular improvisado",
+        "3": "Coletivo"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 18,
+      "letter": "S",
+      "header": "Quantidade de comodos do domicilio",
+      "label": "Quantidade de comodos do domicilio",
+      "field": "d.qtd_comodos_domic_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 19,
+      "letter": "T",
+      "header": "Comodo servindo como dormitorio do domicilio",
+      "label": "Comodo servindo como dormitorio do domicilio",
+      "field": "d.qtd_comodos_dormitorio_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 20,
+      "letter": "U",
+      "header": "Material predominante no piso do domicilio",
+      "label": "Material predominante no piso do domicilio",
+      "field": "d.cod_material_piso_fam",
+      "values": {
+        "1": "Terra",
+        "2": "Cimento",
+        "3": "aplicacoes.mds.gov.br/sagi/simulacao/cecadAdm/ Madeira aproveitada",
+        "4": "Madeira aparelhada",
+        "5": "Ceramica, lajota ou pedra",
+        "6": "Carpete",
+        "7": "Outro Material"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 21,
+      "letter": "V",
+      "header": "Material predominante nas paredes externas do domicilio",
+      "label": "Material predominante nas paredes externas do domicilio",
+      "field": "d.cod_material_domic_fam",
+      "values": {
+        "1": "Alvenaria/tijolo com revestimento",
+        "2": "Alvenaria/tijolo sem revestimento",
+        "3": "Madeira aparelhada",
+        "4": "Taipa revestida",
+        "5": "Taipa nao revestida",
+        "6": "Madeira aproveitada",
+        "7": "Palha",
+        "8": "Outro Material"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 22,
+      "letter": "W",
+      "header": "Ãgua canalizada no domicilio",
+      "label": "Água canalizada no domicilio",
+      "field": "d.cod_agua_canalizada_fam",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 23,
+      "letter": "X",
+      "header": "Forma de abastecimento de agua",
+      "label": "Forma de abastecimento de agua",
+      "field": "d.cod_abaste_agua_domic_fam",
+      "values": {
+        "1": "Rede geral de distribuicao",
+        "2": "Poco ou nascente",
+        "3": "Cisterna",
+        "4": "Outra forma"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 24,
+      "letter": "Y",
+      "header": "Existencia de banheiro",
+      "label": "Existencia de banheiro",
+      "field": "d.cod_banheiro_domic_fam",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 25,
+      "letter": "Z",
+      "header": "Forma de escoamento sanitario",
+      "label": "Forma de escoamento sanitario",
+      "field": "d.cod_escoa_sanitario_domic_fam",
+      "values": {
+        "1": "Rede coletora de esgoto ou pluvial",
+        "2": "Fossa septica",
+        "3": "Fossa rudimentar",
+        "4": "Vala a ceu aberto",
+        "5": "Direto para um rio, lago ou mar",
+        "6": "Outra forma"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 26,
+      "letter": "AA",
+      "header": "Forma de coleta do lixo",
+      "label": "Forma de coleta do lixo",
+      "field": "d.cod_destino_lixo_domic_fam",
+      "values": {
+        "1": "E coletado diretamente",
+        "2": "E coletado indiretamente",
+        "3": "E queimado ou enterrado na propriedade",
+        "4": "E jogado em terreno baldio ou logradouro (rua, avenida, etc.)",
+        "5": "E jogado em rio ou mar",
+        "6": "Tem outro destino"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 27,
+      "letter": "AB",
+      "header": "Tipo de iluminacao",
+      "label": "Tipo de iluminacao",
+      "field": "d.cod_iluminacao_domic_fam",
+      "values": {
+        "1": "Eletrica com medidor proprio",
+        "2": "Eletrica com medidor comunitario",
+        "3": "Eletrica sem medidor",
+        "4": "Oleo, querosene ou gas",
+        "5": "Vela",
+        "6": "Outra forma"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 28,
+      "letter": "AC",
+      "header": "Calcamento em frente ao seu domicilio",
+      "label": "Calcamento em frente ao seu domicilio",
+      "field": "d.cod_calcamento_domic_fam",
+      "values": {
+        "1": "Total",
+        "2": "Parcial",
+        "3": "Nao existe"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 29,
+      "letter": "AD",
+      "header": "Familia Indigena",
+      "label": "Familia Indigena",
+      "field": "d.cod_familia_indigena_fam",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 30,
+      "letter": "AE",
+      "header": "Codigo de povo indigena",
+      "label": "Codigo de povo indigena",
+      "field": "d.cod_povo_indigena_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 31,
+      "letter": "AF",
+      "header": "Nome do povo indigena",
+      "label": "Nome do povo indigena",
+      "field": "d.nom_povo_indigena_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 32,
+      "letter": "AG",
+      "header": "Reside em reserva indigena",
+      "label": "Reside em reserva indigena",
+      "field": "d.cod_indigena_reside_fam",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 33,
+      "letter": "AH",
+      "header": "Codigo da reserva indigena",
+      "label": "Codigo da reserva indigena",
+      "field": "d.cod_reserva_indigena_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 34,
+      "letter": "AI",
+      "header": "Nome da reserva indigena",
+      "label": "Nome da reserva indigena",
+      "field": "d.nom_reserva_indigena_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 35,
+      "letter": "AJ",
+      "header": "Familia quilombola  ",
+      "label": "Familia quilombola",
+      "field": "d.ind_familia_quilombola_fam",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 36,
+      "letter": "AK",
+      "header": "Codigo da comunidade quilombola",
+      "label": "Codigo da comunidade quilombola",
+      "field": "d.cod_comunidade_quilombola_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 37,
+      "letter": "AL",
+      "header": "Nome da comunidade quilombola",
+      "label": "Nome da comunidade quilombola",
+      "field": "d.nom_comunidade_quilombola_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 38,
+      "letter": "AM",
+      "header": "Quantidade de pessoas no domicilio",
+      "label": "Quantidade de pessoas no domicilio",
+      "field": "d.qtd_pessoas_domic_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 39,
+      "letter": "AN",
+      "header": "Quantidade de familias no domicilio",
+      "label": "Quantidade de familias no domicilio",
+      "field": "d.qtd_familias_domic_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 40,
+      "letter": "AO",
+      "header": "Quantidade de pessoas internadas faixa 0-17 anos",
+      "label": "Quantidade de pessoas internadas faixa 0-17 anos",
+      "field": "d.qtd_pessoa_inter_0_17_anos_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 41,
+      "letter": "AP",
+      "header": "Quantidade de pessoas internadas faixa 18-59 anos",
+      "label": "Quantidade de pessoas internadas faixa 18-59 anos",
+      "field": "d.qtd_pessoa_inter_18_64_anos_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 42,
+      "letter": "AQ",
+      "header": "Quantidade de pessoas internadas faixa 60 anos ou mais",
+      "label": "Quantidade de pessoas internadas faixa 60 anos ou mais",
+      "field": "d.qtd_pessoa_inter_65_anos_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 43,
+      "letter": "AR",
+      "header": "Valor de despesas com energia",
+      "label": "Valor de despesas com energia",
+      "field": "d.val_desp_energia_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 44,
+      "letter": "AS",
+      "header": "Valor de despesas com agua",
+      "label": "Valor de despesas com agua",
+      "field": "d.val_desp_agua_esgoto_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 45,
+      "letter": "AT",
+      "header": "Valor de despesas com gas",
+      "label": "Valor de despesas com gas",
+      "field": "d.val_desp_gas_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 46,
+      "letter": "AU",
+      "header": "Valor de despesas com alimentacao",
+      "label": "Valor de despesas com alimentacao",
+      "field": "d.val_desp_alimentacao_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 47,
+      "letter": "AV",
+      "header": "Valor de despesas com transporte",
+      "label": "Valor de despesas com transporte",
+      "field": "d.val_desp_transpor_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 48,
+      "letter": "AW",
+      "header": "Valor de despesas com aluguel",
+      "label": "Valor de despesas com aluguel",
+      "field": "d.val_desp_aluguel_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 49,
+      "letter": "AX",
+      "header": "Valor de despesas com medicamentos",
+      "label": "Valor de despesas com medicamentos",
+      "field": "d.val_desp_medicamentos_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 50,
+      "letter": "AY",
+      "header": "Nome do estabelecimento EAS/MS",
+      "label": "Nome do estabelecimento EAS/MS",
+      "field": "d.nom_estab_assist_saude_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 51,
+      "letter": "AZ",
+      "header": "Codigo do estabelecimento EAS/MS",
+      "label": "Codigo do estabelecimento EAS/MS",
+      "field": "d.cod_eas_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 52,
+      "letter": "BA",
+      "header": "Nome do CRAS/CREAS",
+      "label": "Nome do CRAS/CREAS",
+      "field": "d.nom_centro_assist_fam",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 53,
+      "letter": "BB",
+      "header": "Codigo do CRAS/CREAS",
+      "label": "Codigo do CRAS/CREAS",
+      "field": "d.cod_centro_assist_fam",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 54,
+      "letter": "BC",
+      "header": "Familia identificada em situacao de risco social associado a violacao de direitos",
+      "label": "Familia identificada em situacao de risco social associado a violacao de direitos",
+      "field": "d.ind_risco_scl_vlco_drts",
+      "values": null,
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 55,
+      "letter": "BD",
+      "header": "Familia em risco para inseguranca alimentar",
+      "label": "Familia em risco para inseguranca alimentar",
+      "field": "d.ind_risco_scl_inseg_alim",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 56,
+      "letter": "BE",
+      "header": "Grupos Populacionais Tradicionais e Especificos",
+      "label": "Grupos Populacionais Tradicionais e Especificos",
+      "field": "d.ind_parc_mds_fam",
+      "values": {
+        "101": "Famlia Cigana",
+        "201": "Familia Extrativista",
+        "202": "Familia de Pescadores  Artesanais",
+        "203": "Familia Pertencente a Comunidade de Terreiro",
+        "204": "Familia Ribeirinha",
+        "205": "Familia Agricultores Familiares",
+        "301": "Familia Assentada da Reforma Agraria",
+        "302": "Familia Beneficiaria do Programa Nacional do Credito Fundiario",
+        "303": "Familia Acampada",
+        "304": "Familia Atingida por Empreendimentos de Infraestrutura",
+        "305": "Familia de Preso do Sistema Carcerario",
+        "306": "Familia Catadores de Material Reciclavel",
+        "0": "Nenhuma"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 57,
+      "letter": "BF",
+      "header": "Referencia Cadastro Unico",
+      "label": "Referencia Cadastro Unico",
+      "field": "d.ref_cad",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 58,
+      "letter": "BG",
+      "header": "Referencia Programa Bolsa Familia",
+      "label": "Referencia Programa Bolsa Familia",
+      "field": "d.ref_pbf",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 59,
+      "letter": "BH",
+      "header": "Estado cadastral da pessoa",
+      "label": "Estado cadastral da pessoa",
+      "field": "p.cod_est_cadastral_memb",
+      "values": {
+        "2": "Sem Registro Civil",
+        "3": "Cadastrado",
+        "5": "Aguardando NIS",
+        "6": "Validando NIS"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 60,
+      "letter": "BI",
+      "header": "Pessoa com marcacao de trabalho infantil",
+      "label": "Pessoa com marcacao de trabalho infantil",
+      "field": "p.ind_trabalho_infantil_pessoa",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 61,
+      "letter": "BJ",
+      "header": "Sexo",
+      "label": "Sexo",
+      "field": "p.cod_sexo_pessoa",
+      "values": {
+        "1": "Masculino",
+        "2": "Feminino"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 62,
+      "letter": "BK",
+      "header": "Data de nascimento",
+      "label": "Data de nascimento",
+      "field": "p.dta_nasc_pessoa",
+      "values": null,
+      "used": false,
+      "date": true,
+      "required": false
+    },
+    {
+      "index": 63,
+      "letter": "BL",
+      "header": "Relacao de parentesco com o responsavel familiar",
+      "label": "Relacao de parentesco com o responsavel familiar",
+      "field": "p.cod_parentesco_rf_pessoa",
+      "values": {
+        "1": "Pessoa Responsavel pela Unidade Familiar - RF",
+        "2": "Conjuge ou companheiro(a)",
+        "3": "Filho(a)",
+        "4": "Enteado(a)",
+        "5": "Neto(a) ou bisneto(a)",
+        "6": "Pai ou mae",
+        "7": "Sogro(a)",
+        "8": "Irmao ou irma",
+        "9": "Genro ou nora",
+        "10": "Outro parente",
+        "11": "Nao parente"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 64,
+      "letter": "BM",
+      "header": "Cor ou raca",
+      "label": "Cor ou raca",
+      "field": "p.cod_raca_cor_pessoa",
+      "values": {
+        "1": "Branca",
+        "2": "Preta",
+        "3": "Amarela",
+        "4": "Parda",
+        "5": "Indigena"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 65,
+      "letter": "BN",
+      "header": "Local de nascimento",
+      "label": "Local de nascimento",
+      "field": "p.cod_local_nascimento_pessoa",
+      "values": {
+        "1": "Neste municipio",
+        "2": "Em outro municipio",
+        "3": "Em outro pais"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 66,
+      "letter": "BO",
+      "header": "UF de nascimento da pessoa",
+      "label": "UF de nascimento da pessoa",
+      "field": "p.sig_uf_munic_nasc_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 67,
+      "letter": "BP",
+      "header": "Nome do municipio de nascimento da pessoa",
+      "label": "Nome do municipio de nascimento da pessoa",
+      "field": "p.nom_ibge_munic_nasc_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 68,
+      "letter": "BQ",
+      "header": "Codigo ibge do municipio de nascimento da pessoa",
+      "label": "Codigo ibge do municipio de nascimento da pessoa",
+      "field": "p.cod_ibge_munic_nasc_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 69,
+      "letter": "BR",
+      "header": "Nome do pais de nascimento da pessoa",
+      "label": "Nome do pais de nascimento da pessoa",
+      "field": "p.nom_pais_origem_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 70,
+      "letter": "BS",
+      "header": "Codigo do pais de nascimento da pessoa, no formato nn",
+      "label": "Codigo do pais de nascimento da pessoa, no formato nn",
+      "field": "p.cod_pais_origem_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 71,
+      "letter": "BT",
+      "header": "Nascimento registrado em Cartorio",
+      "label": "Nascimento registrado em Cartorio",
+      "field": "p.cod_certidao_registrada_pessoa",
+      "values": {
+        "1": "Sim e tem Certidao de Nascimento",
+        "2": "Sim, mas nao tem Certidao de Nascimento",
+        "3": "Nao",
+        "4": "Nao sabe"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 72,
+      "letter": "BU",
+      "header": "Faixa etaria",
+      "label": "Faixa etaria",
+      "field": "p.fx_idade",
+      "values": {
+        "0": "Entre 0 e 4",
+        "1": "Entre 5 a 6",
+        "2": "Entre 7 a 15",
+        "3": "Entre 16 a 17",
+        "4": "Entre 18 a 24",
+        "5": "Entre 25 a 34",
+        "6": "Entre 35 a 39",
+        "7": "Entre 40 a 44",
+        "8": "Entre 45 a 49",
+        "9": "Entre 50 a 54",
+        "10": "Entre 55 a 59",
+        "11": "Entre 60 a 64",
+        "12": "Maior que  65"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 73,
+      "letter": "BV",
+      "header": "Recebe PBF pessoa",
+      "label": "Recebe PBF pessoa",
+      "field": "p.marc_pbf",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 74,
+      "letter": "BW",
+      "header": "Pessoa deseja informar o genero?",
+      "label": "Pessoa deseja informar o genero?",
+      "field": "p.ind_identidade_genero",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 75,
+      "letter": "BX",
+      "header": "E pessoa trans ou travesti?",
+      "label": "E pessoa trans ou travesti?",
+      "field": "p.ind_transgenero",
+      "values": {
+        "1": "Sim, a pessoa e trans",
+        "2": "Sim, a pessoa e travesti",
+        "3": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 76,
+      "letter": "BY",
+      "header": "Genero/identidade de genero da pessoa",
+      "label": "Genero/identidade de genero da pessoa",
+      "field": "p.ind_tipo_identidade_genero",
+      "values": {
+        "1": "Feminina",
+        "2": "Masculina",
+        "3": "Nao binario/a"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 77,
+      "letter": "BZ",
+      "header": "Municipio do registro",
+      "label": "Municipio do registro",
+      "field": "p.nom_munic_certid_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 78,
+      "letter": "CA",
+      "header": "Codigo IBGE do municipio do registro",
+      "label": "Codigo IBGE do municipio do registro",
+      "field": "p.cod_ibge_munic_certid_pessoa",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 79,
+      "letter": "CB",
+      "header": "Pessoa tem deficiencia?",
+      "label": "Pessoa tem deficiencia?",
+      "field": "p.cod_deficiencia_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 80,
+      "letter": "CC",
+      "header": "Cegueira",
+      "label": "Cegueira",
+      "field": "p.ind_def_cegueira_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 81,
+      "letter": "CD",
+      "header": "Baixa visao",
+      "label": "Baixa visao",
+      "field": "p.ind_def_baixa_visao_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 82,
+      "letter": "CE",
+      "header": "Surdez severa/profunda",
+      "label": "Surdez severa/profunda",
+      "field": "p.ind_def_surdez_profunda_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 83,
+      "letter": "CF",
+      "header": "Surdez leve/moderada",
+      "label": "Surdez leve/moderada",
+      "field": "p.ind_def_surdez_leve_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 84,
+      "letter": "CG",
+      "header": "Deficiencia fisica",
+      "label": "Deficiencia fisica",
+      "field": "p.ind_def_fisica_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 85,
+      "letter": "CH",
+      "header": "Deficiencia mental ou intelectual",
+      "label": "Deficiencia mental ou intelectual",
+      "field": "p.ind_def_mental_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 86,
+      "letter": "CI",
+      "header": "Sindrome de Down",
+      "label": "Sindrome de Down",
+      "field": "p.ind_def_sindrome_down_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 87,
+      "letter": "CJ",
+      "header": "Transtorno/doenca mental",
+      "label": "Transtorno/doenca mental",
+      "field": "p.ind_def_transtorno_mental_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 88,
+      "letter": "CK",
+      "header": "Nao recebe ajuda de terceiros",
+      "label": "Nao recebe ajuda de terceiros",
+      "field": "p.ind_ajuda_nao_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 89,
+      "letter": "CL",
+      "header": "Recebe ajuda de alguem da familia",
+      "label": "Recebe ajuda de alguem da familia",
+      "field": "p.ind_ajuda_familia_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 90,
+      "letter": "CM",
+      "header": "Recebe ajuda de cuidador especializado",
+      "label": "Recebe ajuda de cuidador especializado",
+      "field": "p.ind_ajuda_especializado_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 91,
+      "letter": "CN",
+      "header": "Recebe ajuda de vizinho",
+      "label": "Recebe ajuda de vizinho",
+      "field": "p.ind_ajuda_vizinho_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 92,
+      "letter": "CO",
+      "header": "Recebe ajuda de instituicao",
+      "label": "Recebe ajuda de instituicao",
+      "field": "p.ind_ajuda_instituicao_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 93,
+      "letter": "CP",
+      "header": "Recebe ajuda de outra forma",
+      "label": "Recebe ajuda de outra forma",
+      "field": "p.ind_ajuda_outra_memb",
+      "values": {
+        "0": "Opcao nao marcada no formulario",
+        "1": "Opcao marcada no formulario"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 94,
+      "letter": "CQ",
+      "header": "Pessoa sabe ler e escrever",
+      "label": "Pessoa sabe ler e escrever",
+      "field": "p.cod_sabe_ler_escrever_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 95,
+      "letter": "CR",
+      "header": "Pessoa frequenta escola",
+      "label": "Pessoa frequenta escola",
+      "field": "p.ind_frequenta_escola_memb",
+      "values": {
+        "1": "Sim, rede publica",
+        "2": "Sim, rede particular",
+        "3": "Nao, ja frequentou",
+        "4": "Nunca frequentou"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 96,
+      "letter": "CS",
+      "header": "Nome da escola da pessoa",
+      "label": "Nome da escola da pessoa",
+      "field": "p.nom_escola_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 97,
+      "letter": "CT",
+      "header": "Escola localizada no municipio",
+      "label": "Escola localizada no municipio",
+      "field": "p.cod_escola_local_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 98,
+      "letter": "CU",
+      "header": "UF da escola da pessoa",
+      "label": "UF da escola da pessoa",
+      "field": "p.sig_uf_escola_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 99,
+      "letter": "CV",
+      "header": "Nome do municipio da escola da pessoa",
+      "label": "Nome do municipio da escola da pessoa",
+      "field": "p.nom_munic_escola_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 100,
+      "letter": "CW",
+      "header": "Codigo do ibge do municipio da escola da pessoa",
+      "label": "Codigo do ibge do municipio da escola da pessoa",
+      "field": "p.cod_ibge_munic_escola_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 101,
+      "letter": "CX",
+      "header": "Codigo INEP da escola da pessoa",
+      "label": "Codigo INEP da escola da pessoa",
+      "field": "p.cod_censo_inep_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 102,
+      "letter": "CY",
+      "header": "Curso que a pessoa frequenta",
+      "label": "Curso que a pessoa frequenta",
+      "field": "p.cod_curso_frequenta_memb",
+      "values": {
+        "1": "Creche",
+        "2": "Pre-escola (exceto CA)",
+        "3": "Classe de Alfabetizacao - CA",
+        "4": "Ensino Fundamental regular (duracao 8 anos)",
+        "5": "Ensino Fundamental regular (duracao 9 anos)",
+        "6": "Ensino Fundamental especial",
+        "7": "Ensino Medio regular",
+        "8": "Ensino Medio especial",
+        "9": "Ensino Fundamental EJA - series iniciais (Supletivo - 1Âª a 4Âª)",
+        "10": "Ensino Fundamental EJA - series finais (Supletivo - 5Âª a 8Âª)",
+        "11": "Ensino Medio EJA (Supletivo)",
+        "12": "Alfabetizacao para adultos(Mobral, etc.)",
+        "13": "Superior, Aperfeicoamento,Especializacao, Mestrado,Doutorado",
+        "14": "Pre-vestibular"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 103,
+      "letter": "CZ",
+      "header": "Ano e serie do curso que a pessoa frequenta",
+      "label": "Ano e serie do curso que a pessoa frequenta",
+      "field": "p.cod_ano_serie_frequenta_memb",
+      "values": {
+        "1": "Primeiro(a)",
+        "2": "Segundo(a)",
+        "3": "Terceiro(a)",
+        "4": "Quarto(a)",
+        "5": "Quinto(a)",
+        "6": "Sexto(a)",
+        "7": "Setimo(a)",
+        "8": "Oitavo(a)",
+        "9": "Nono(a)",
+        "10": "Curso nao-seriado"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 104,
+      "letter": "DA",
+      "header": "Curso mais elevado que a pessoa frequentou",
+      "label": "Curso mais elevado que a pessoa frequentou",
+      "field": "p.cod_curso_frequentou_pessoa_memb",
+      "values": {
+        "1": "Creche",
+        "2": "Pre-escola (exceto CA)",
+        "3": "Classe de Alfabetizacao - CA",
+        "4": "Ensino Fundamental 1Âª a 4Âª series, Elementar (Primario), Primeira fase do 1Âº grau",
+        "5": "Ensino Fundamental 5Âª a 8Âª series, Medio 1Âº ciclo (Ginasial), Segunda fase do 1Âº grau",
+        "6": "Ensino Fundamental (duracao 9 anos)",
+        "7": "Ensino Fundamental Especial",
+        "8": "Ensino Medio, 2Âº grau, Medio 2Âº ciclo (Cientifico, Classico, Tecnico, Normal)",
+        "9": "Ensino Medio Especial",
+        "10": "Ensino Fundamental EJA -series iniciais (Supletivo 1Âª a 4Âª)",
+        "11": "Ensino Fundamental EJA -series finais (Supletivo 5Âª a 8Âª)",
+        "12": "Ensino Medio EJA(Supletivo)",
+        "13": "Superior, Aperfeicoamento,Especializacao, Mestrado,Doutorado",
+        "14": "Alfabetizacao para Adultos(Mobral, etc.)",
+        "15": "Nenhum"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 105,
+      "letter": "DB",
+      "header": "Ultimo ano e serie do curso que a pessoa frequentou",
+      "label": "Ultimo ano e serie do curso que a pessoa frequentou",
+      "field": "p.cod_ano_serie_frequentou_memb",
+      "values": {
+        "1": "Primeiro(a)",
+        "2": "Segundo(a)",
+        "3": "Terceiro(a)",
+        "4": "Quarto(a)",
+        "5": "Quinto(a)",
+        "6": "Sexto(a)",
+        "7": "Setimo(a)",
+        "8": "Oitavo(a)",
+        "9": "Nono(a)",
+        "10": "Curso nao-seriado"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 106,
+      "letter": "DC",
+      "header": "A pessoa concluiu o curso?",
+      "label": "A pessoa concluiu o curso?",
+      "field": "p.cod_concluiu_frequentou_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 107,
+      "letter": "DD",
+      "header": "Grau de instrucao",
+      "label": "Grau de instrucao",
+      "field": "p.grau_instrucao",
+      "values": {
+        "1": "Sem instrucao",
+        "2": "Fundamental incompleto",
+        "3": "Fundamental completo",
+        "4": "Medio incompleto",
+        "5": "Medio completo",
+        "6": "Superior incompleto ou mais"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 108,
+      "letter": "DE",
+      "header": "Pessoa trabalhou na semana passada?",
+      "label": "Pessoa trabalhou na semana passada?",
+      "field": "p.cod_trabalhou_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 109,
+      "letter": "DF",
+      "header": "Pessoa estava afastada na semana passada?",
+      "label": "Pessoa estava afastada na semana passada?",
+      "field": "p.cod_afastado_trab_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 110,
+      "letter": "DG",
+      "header": "Atividade extrativista",
+      "label": "Atividade extrativista",
+      "field": "p.cod_agricultura_trab_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 111,
+      "letter": "DH",
+      "header": "Funcao principal",
+      "label": "Funcao principal",
+      "field": "p.cod_principal_trab_memb",
+      "values": {
+        "1": "Trabalhador por conta propria (bico, autonomo)",
+        "2": "Trabalhador temporario em area rural",
+        "3": "Empregado sem carteira de trabalho assinada",
+        "4": "Empregado com carteira de trabalho assinada",
+        "5": "Trabalhador domestico sem carteira de trabalho assinada",
+        "6": "Trab. domestico com cart. de trab. assinada",
+        "7": "Trabalhador nao-remunerado",
+        "8": "Militar ou servidor publico",
+        "9": "Empregador",
+        "10": "Estagiario",
+        "11": "Aprendiz"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 112,
+      "letter": "DI",
+      "header": "Trabalho remunerado nos ultimos 12 meses",
+      "label": "Trabalho remunerado nos ultimos 12 meses",
+      "field": "p.cod_trabalho_12_meses_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 113,
+      "letter": "DJ",
+      "header": "Quantidade de meses trabalhados nos ultimos 12 meses",
+      "label": "Quantidade de meses trabalhados nos ultimos 12 meses",
+      "field": "p.qtd_meses_12_meses_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 114,
+      "letter": "DK",
+      "header": "Faixa do Valor de remuneracao do mes passado do trabalho principal",
+      "label": "Faixa do Valor de remuneracao do mes passado do trabalho principal",
+      "field": "p.fx_renda_individual_805",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 115,
+      "letter": "DL",
+      "header": "Faixa da Remuneracao bruta de todos os trabalhos nos ultimos 12 meses",
+      "label": "Faixa da Remuneracao bruta de todos os trabalhos nos ultimos 12 meses",
+      "field": "p.fx_renda_individual_808",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 116,
+      "letter": "DM",
+      "header": "Faixa do Valor recebido de doacao",
+      "label": "Faixa do Valor recebido de doacao",
+      "field": "p.fx_renda_individual_809_1",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 117,
+      "letter": "DN",
+      "header": "Faixa do Valor recebido de aposentadoria",
+      "label": "Faixa do Valor recebido de aposentadoria",
+      "field": "p.fx_renda_individual_809_2",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 118,
+      "letter": "DO",
+      "header": "Faixa do Valor recebido de seguro desemprego",
+      "label": "Faixa do Valor recebido de seguro desemprego",
+      "field": "p.fx_renda_individual_809_3",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 119,
+      "letter": "DP",
+      "header": "Faixa do Valor recebido de pensao alimenticia",
+      "label": "Faixa do Valor recebido de pensao alimenticia",
+      "field": "p.fx_renda_individual_809_4",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 120,
+      "letter": "DQ",
+      "header": "Faixa do Valor recebido de outras fontes",
+      "label": "Faixa do Valor recebido de outras fontes",
+      "field": "p.fx_renda_individual_809_5",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 121,
+      "letter": "DR",
+      "header": "Situacao de Rua",
+      "label": "Situacao de Rua",
+      "field": "p.marc_sit_rua",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 122,
+      "letter": "DS",
+      "header": "Dorme na rua ",
+      "label": "Dorme na rua",
+      "field": "p.ind_dormir_rua_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 123,
+      "letter": "DT",
+      "header": "Quantidade de vezes por semana que dorme na rua ",
+      "label": "Quantidade de vezes por semana que dorme na rua",
+      "field": "p.qtd_dormir_freq_rua_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 124,
+      "letter": "DU",
+      "header": "Dorme em albergue ",
+      "label": "Dorme em albergue",
+      "field": "p.ind_dormir_albergue_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 125,
+      "letter": "DV",
+      "header": "Quantidade de vezes por semana que dorme em albergue ",
+      "label": "Quantidade de vezes por semana que dorme em albergue",
+      "field": "p.qtd_dormir_freq_albergue_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 126,
+      "letter": "DW",
+      "header": "Dorme em domicilio particular",
+      "label": "Dorme em domicilio particular",
+      "field": "p.ind_dormir_dom_part_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 127,
+      "letter": "DX",
+      "header": "Quantidade de vezes por semana que dorme em domicilio particular",
+      "label": "Quantidade de vezes por semana que dorme em domicilio particular",
+      "field": "p.qtd_dormir_freq_dom_part_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 128,
+      "letter": "DY",
+      "header": "Dorme de outra forma",
+      "label": "Dorme de outra forma",
+      "field": "p.ind_outro_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 129,
+      "letter": "DZ",
+      "header": "Quantidade de vezes por semana que dorme de outra forma",
+      "label": "Quantidade de vezes por semana que dorme de outra forma",
+      "field": "p.qtd_freq_outro_memb",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 130,
+      "letter": "EA",
+      "header": "Tempo em que vive na rua",
+      "label": "Tempo em que vive na rua",
+      "field": "p.cod_tempo_rua_memb",
+      "values": {
+        "1": "Ate seis meses",
+        "2": "Entre seis meses e um ano",
+        "3": "Entre um e dois anos",
+        "4": "Entre dois e cinco anos",
+        "5": "Entre cinco e dez anos",
+        "6": "Mais de dez anos"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 131,
+      "letter": "EB",
+      "header": "Motivo da condicao de rua por perda de moradia ",
+      "label": "Motivo da condicao de rua por perda de moradia",
+      "field": "p.ind_motivo_perda_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 132,
+      "letter": "EC",
+      "header": "Motivo da condicao de rua por ameaca ",
+      "label": "Motivo da condicao de rua por ameaca",
+      "field": "p.ind_motivo_ameaca_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 133,
+      "letter": "ED",
+      "header": "Motivo da condicao de rua por problemas familiares",
+      "label": "Motivo da condicao de rua por problemas familiares",
+      "field": "p.ind_motivo_probs_fam_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 134,
+      "letter": "EE",
+      "header": "Motivo da condicao de rua por alcoolismo ",
+      "label": "Motivo da condicao de rua por alcoolismo",
+      "field": "p.ind_motivo_alcool_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 135,
+      "letter": "EF",
+      "header": "Motivo da condicao de rua por desemprego ",
+      "label": "Motivo da condicao de rua por desemprego",
+      "field": "p.ind_motivo_desemprego_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 136,
+      "letter": "EG",
+      "header": "Motivo da condicao de rua por trabalho ",
+      "label": "Motivo da condicao de rua por trabalho",
+      "field": "p.ind_motivo_trabalho_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 137,
+      "letter": "EH",
+      "header": "Motivo da condicao de rua por tratamento de saude ",
+      "label": "Motivo da condicao de rua por tratamento de saude",
+      "field": "p.ind_motivo_saude_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 138,
+      "letter": "EI",
+      "header": "Motivo da condicao de rua por preferencia ",
+      "label": "Motivo da condicao de rua por preferencia",
+      "field": "p.ind_motivo_pref_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 139,
+      "letter": "EJ",
+      "header": "Motivo da condicao de rua por outro motivo",
+      "label": "Motivo da condicao de rua por outro motivo",
+      "field": "p.ind_motivo_outro_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 140,
+      "letter": "EK",
+      "header": "Nao sabe/nao lembra o motivo da condicao de rua ",
+      "label": "Nao sabe/nao lembra o motivo da condicao de rua",
+      "field": "p.ind_motivo_nao_sabe_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 141,
+      "letter": "EL",
+      "header": "Nao respondeu o motivo da condicao de rua",
+      "label": "Nao respondeu o motivo da condicao de rua",
+      "field": "p.ind_motivo_nao_resp_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 142,
+      "letter": "EM",
+      "header": "Tempo em que mora na cidade",
+      "label": "Tempo em que mora na cidade",
+      "field": "p.cod_tempo_cidade_memb",
+      "values": {
+        "1": "Ate seis meses",
+        "2": "Entre seis meses e um ano",
+        "3": "Entre um e dois anos",
+        "4": "Entre dois e cinco anos",
+        "5": "Entre cinco e dez anos",
+        "6": "Mais de dez anos"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 143,
+      "letter": "EN",
+      "header": "Vive com sua familia na rua",
+      "label": "Vive com sua familia na rua",
+      "field": "p.cod_vive_fam_rua_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 144,
+      "letter": "EO",
+      "header": "Tem contato com parente fora da condicao de rua ",
+      "label": "Tem contato com parente fora da condicao de rua",
+      "field": "p.cod_contato_parente_memb",
+      "values": {
+        "1": "Todo dia",
+        "2": "Toda semana",
+        "3": "Todo mes",
+        "4": "Todo ano",
+        "5": "Quase nunca",
+        "6": "Nunca"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 145,
+      "letter": "EP",
+      "header": "Atividade comunitaria em escola",
+      "label": "Atividade comunitaria em escola",
+      "field": "p.ind_ativ_com_escola_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 146,
+      "letter": "EQ",
+      "header": "Atividade comunitaria em cooperativa",
+      "label": "Atividade comunitaria em cooperativa",
+      "field": "p.ind_ativ_com_coop_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 147,
+      "letter": "ER",
+      "header": "Atividade comunitaria em movimento social ",
+      "label": "Atividade comunitaria em movimento social",
+      "field": "p.ind_ativ_com_mov_soc_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 148,
+      "letter": "ES",
+      "header": "Nao sabe se frequentou atividade comunitaria",
+      "label": "Nao sabe se frequentou atividade comunitaria",
+      "field": "p.ind_ativ_com_nao_sabe_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 149,
+      "letter": "ET",
+      "header": "Nao respondeu se frequentou atividade comunitaria",
+      "label": "Nao respondeu se frequentou atividade comunitaria",
+      "field": "p.ind_ativ_com_nao_resp_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 150,
+      "letter": "EU",
+      "header": "Atendido por cras ",
+      "label": "Atendido por cras",
+      "field": "p.ind_atend_cras_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 151,
+      "letter": "EV",
+      "header": "Atendido por creas ",
+      "label": "Atendido por creas",
+      "field": "p.ind_atend_creas_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 152,
+      "letter": "EW",
+      "header": "Atendido por centro ref pop rua",
+      "label": "Atendido por centro ref pop rua",
+      "field": "p.ind_atend_centro_ref_rua_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 153,
+      "letter": "EX",
+      "header": "Atendido por instituicao governamental",
+      "label": "Atendido por instituicao governamental",
+      "field": "p.ind_atend_inst_gov_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 154,
+      "letter": "EY",
+      "header": "Atendido por instituicao nao-governamental ",
+      "label": "Atendido por instituicao nao-governamental",
+      "field": "p.ind_atend_inst_nao_gov_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 155,
+      "letter": "EZ",
+      "header": "Atendido por hospital/clinica geral",
+      "label": "Atendido por hospital/clinica geral",
+      "field": "p.ind_atend_hospital_geral_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": true,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 156,
+      "letter": "FA",
+      "header": "Teve emprego com carteira assinada?",
+      "label": "Teve emprego com carteira assinada?",
+      "field": "p.cod_cart_assinada_memb",
+      "values": {
+        "1": "Sim",
+        "2": "Nao",
+        "3": "Nao Sabe"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 157,
+      "letter": "FB",
+      "header": "Ganha dinheiro com construcao civil ",
+      "label": "Ganha dinheiro com construcao civil",
+      "field": "p.ind_dinh_const_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 158,
+      "letter": "FC",
+      "header": "Ganha dinheiro como guardador de carro",
+      "label": "Ganha dinheiro como guardador de carro",
+      "field": "p.ind_dinh_flanelhinha_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 159,
+      "letter": "FD",
+      "header": "Ganha dinheiro como carregador",
+      "label": "Ganha dinheiro como carregador",
+      "field": "p.ind_dinh_carregador_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 160,
+      "letter": "FE",
+      "header": "Ganha dinheiro como catador",
+      "label": "Ganha dinheiro como catador",
+      "field": "p.ind_dinh_catador_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 161,
+      "letter": "FF",
+      "header": "Ganha dinheiro com servicos gerais ",
+      "label": "Ganha dinheiro com servicos gerais",
+      "field": "p.ind_dinh_servs_gerais_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 162,
+      "letter": "FG",
+      "header": "Ganha dinheiro como pedinte",
+      "label": "Ganha dinheiro como pedinte",
+      "field": "p.ind_dinh_pede_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 163,
+      "letter": "FH",
+      "header": "Ganha dinheiro com vendas",
+      "label": "Ganha dinheiro com vendas",
+      "field": "p.ind_dinh_vendas_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 164,
+      "letter": "FI",
+      "header": "Ganha dinheiro de outra forma ",
+      "label": "Ganha dinheiro de outra forma",
+      "field": "p.ind_dinh_outro_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 165,
+      "letter": "FJ",
+      "header": "Nao respondeu como ganha dinheiro ",
+      "label": "Nao respondeu como ganha dinheiro",
+      "field": "p.ind_dinh_nao_resp_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 166,
+      "letter": "FK",
+      "header": "Nao foi atendido por nenhum local",
+      "label": "Nao foi atendido por nenhum local",
+      "field": "p.ind_atend_nenhum_memb",
+      "values": {
+        "0": "Nao",
+        "1": "Sim"
+      },
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 167,
+      "letter": "FL",
+      "header": "Referencia Cadastro Unico",
+      "label": "Referencia Cadastro Unico",
+      "field": "d.ref_cad",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    },
+    {
+      "index": 168,
+      "letter": "FM",
+      "header": "Referencia Programa Bolsa Familia",
+      "label": "Referencia Programa Bolsa Familia",
+      "field": "d.ref_pbf",
+      "values": null,
+      "used": false,
+      "date": false,
+      "required": false
+    }
+  ]
+}

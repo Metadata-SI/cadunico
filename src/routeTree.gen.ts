@@ -28,6 +28,7 @@ import { Route as SituacaoRuaRouteImport } from './routes/situacao-rua'
 import { Route as TrabalhoRendaRouteImport } from './routes/trabalho-renda'
 import { Route as UsuariosRouteImport } from './routes/usuarios'
 import { Route as ApiAdminUsersRouteImport } from './routes/api/admin-users'
+import { Route as ApiBaseDadosRouteImport } from './routes/api/base-dados'
 import { Route as ApiDashboardCubeRouteImport } from './routes/api/dashboard-cube'
 import { Route as ApiExpenseStatisticsRouteImport } from './routes/api/expense-statistics'
 import { Route as ApiFirstLoginRouteImport } from './routes/api/first-login'
@@ -127,6 +128,11 @@ const ApiAdminUsersRoute = ApiAdminUsersRouteImport.update({
   path: '/api/admin-users',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiBaseDadosRoute = ApiBaseDadosRouteImport.update({
+  id: '/api/base-dados',
+  path: '/api/base-dados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDashboardCubeRoute = ApiDashboardCubeRouteImport.update({
   id: '/api/dashboard-cube',
   path: '/api/dashboard-cube',
@@ -163,6 +169,7 @@ export interface FileRoutesByFullPath {
   '/trabalho-renda': typeof TrabalhoRendaRoute
   '/usuarios': typeof UsuariosRoute
   '/api/admin-users': typeof ApiAdminUsersRoute
+  '/api/base-dados': typeof ApiBaseDadosRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
   '/api/first-login': typeof ApiFirstLoginRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByTo {
   '/trabalho-renda': typeof TrabalhoRendaRoute
   '/usuarios': typeof UsuariosRoute
   '/api/admin-users': typeof ApiAdminUsersRoute
+  '/api/base-dados': typeof ApiBaseDadosRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
   '/api/first-login': typeof ApiFirstLoginRoute
@@ -212,6 +220,7 @@ export interface FileRoutesById {
   '/trabalho-renda': typeof TrabalhoRendaRoute
   '/usuarios': typeof UsuariosRoute
   '/api/admin-users': typeof ApiAdminUsersRoute
+  '/api/base-dados': typeof ApiBaseDadosRoute
   '/api/dashboard-cube': typeof ApiDashboardCubeRoute
   '/api/expense-statistics': typeof ApiExpenseStatisticsRoute
   '/api/first-login': typeof ApiFirstLoginRoute
@@ -238,6 +247,7 @@ export interface FileRouteTypes {
     | '/trabalho-renda'
     | '/usuarios'
     | '/api/admin-users'
+    | '/api/base-dados'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
     | '/api/first-login'
@@ -262,6 +272,7 @@ export interface FileRouteTypes {
     | '/trabalho-renda'
     | '/usuarios'
     | '/api/admin-users'
+    | '/api/base-dados'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
     | '/api/first-login'
@@ -286,6 +297,7 @@ export interface FileRouteTypes {
     | '/trabalho-renda'
     | '/usuarios'
     | '/api/admin-users'
+    | '/api/base-dados'
     | '/api/dashboard-cube'
     | '/api/expense-statistics'
     | '/api/first-login'
@@ -311,6 +323,7 @@ export interface RootRouteChildren {
   TrabalhoRendaRoute: typeof TrabalhoRendaRoute
   UsuariosRoute: typeof UsuariosRoute
   ApiAdminUsersRoute: typeof ApiAdminUsersRoute
+  ApiBaseDadosRoute: typeof ApiBaseDadosRoute
   ApiDashboardCubeRoute: typeof ApiDashboardCubeRoute
   ApiExpenseStatisticsRoute: typeof ApiExpenseStatisticsRoute
   ApiFirstLoginRoute: typeof ApiFirstLoginRoute
@@ -451,6 +464,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAdminUsersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/base-dados': {
+      id: '/api/base-dados'
+      path: '/api/base-dados'
+      fullPath: '/api/base-dados'
+      preLoaderRoute: typeof ApiBaseDadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/dashboard-cube': {
       id: '/api/dashboard-cube'
       path: '/api/dashboard-cube'
@@ -495,6 +515,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrabalhoRendaRoute: TrabalhoRendaRoute,
   UsuariosRoute: UsuariosRoute,
   ApiAdminUsersRoute: ApiAdminUsersRoute,
+  ApiBaseDadosRoute: ApiBaseDadosRoute,
   ApiDashboardCubeRoute: ApiDashboardCubeRoute,
   ApiExpenseStatisticsRoute: ApiExpenseStatisticsRoute,
   ApiFirstLoginRoute: ApiFirstLoginRoute,
