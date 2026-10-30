@@ -28,8 +28,6 @@ export const COLUMNS: ColumnInfo[] = schema.columns.map((column) => ({
   required: column.required,
 }));
 
-export const TEMPLATE_URL = "/modelo-complemento-cadunico.xlsx";
-
 export interface ColumnProblem {
   letter: string;
   expected: string;

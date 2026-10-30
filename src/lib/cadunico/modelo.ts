@@ -1,23 +1,20 @@
-// Gera public/modelo-complemento-cadunico.xlsx a partir de src/lib/cadunico/schema.json.
-// As linhas de exemplo são FICTÍCIAS (códigos familiares 999...), só para mostrar o formato.
-// Uso: node scripts/build-modelo-complemento.mjs
-import fs from "node:fs";
-import path from "node:path";
+/**
+ * Modelo de complemento da base, gerado no navegador a partir de schema.json.
+ * Não fica em public/ porque o repositório guarda *.xlsx no Git LFS, que a Vercel não baixa.
+ * As linhas de exemplo são FICTÍCIAS (códigos familiares 999...), só para mostrar o formato.
+ */
 import * as XLSX from "xlsx";
+import schema from "./schema.json";
 
-const root = process.cwd();
-const schema = JSON.parse(
-  fs.readFileSync(path.join(root, "src", "lib", "cadunico", "schema.json"), "utf8"),
-);
-const output = path.join(root, "public", "modelo-complemento-cadunico.xlsx");
+type Example = Record<number, string | number | Date>;
 
-const date = (text) => {
-  const [day, month, year] = text.split("/").map(Number);
+const date = (text: string) => {
+  const [day = 1, month = 1, year = 2000] = text.split("/").map(Number);
   return new Date(year, month - 1, day);
 };
 
 // Valores da família (repetidos em todas as linhas dos membros).
-const familia = (codigo, overrides = {}) => ({
+const familia = (codigo: string, overrides: Example = {}): Example => ({
   0: 2408102, // código IBGE de Natal
   1: codigo,
   2: date("15/03/2019"),
@@ -56,7 +53,7 @@ const familia = (codigo, overrides = {}) => ({
 });
 
 // Valores de cada pessoa.
-const pessoa = (overrides) => ({
+const pessoa = (overrides: Example): Example => ({
   59: 3,
   60: 2,
   73: 1,
@@ -74,7 +71,7 @@ const pessoa = (overrides) => ({
   ...overrides,
 });
 
-const exemplos = [
+const exemplos = (): Example[] => [
   {
     ...familia("99900000001"),
     ...pessoa({
@@ -125,55 +122,7 @@ const exemplos = [
   },
 ];
 
-const columns = schema.columns;
-const header = columns.map((column) => column.label);
-const dataRows = exemplos.map((example) => columns.map((column) => example[column.index] ?? null));
-const sheetTudo = XLSX.utils.aoa_to_sheet([header, ...dataRows], { cellDates: true });
-for (const column of columns.filter((item) => item.date)) {
-  for (let row = 1; row <= dataRows.length; row++) {
-    const cell = sheetTudo[XLSX.utils.encode_cell({ r: row, c: column.index })];
-    if (cell) cell.z = "dd/mm/yyyy";
-  }
-}
-sheetTudo["!cols"] = columns.map((column) => ({
-  wch: Math.min(40, Math.max(12, column.label.length + 2)),
-}));
-sheetTudo["!freeze"] = { xSplit: 2, ySplit: 1 };
-
-const sheetColunas = XLSX.utils.aoa_to_sheet([
-  [
-    "Coluna",
-    "Cabeçalho (copiar exatamente)",
-    "Campo no CadÚnico",
-    "Obrigatória",
-    "Usada nos indicadores",
-    "Valores aceitos",
-  ],
-  ...columns.map((column) => [
-    column.letter,
-    column.label,
-    column.field ?? "",
-    column.required ? "Sim" : "Não",
-    column.used ? "Sim" : "Não",
-    column.values
-      ? Object.entries(column.values)
-          .map(([code, label]) => `${code} = ${label}`)
-          .join("; ")
-      : column.date
-        ? "Data (dd/mm/aaaa)"
-        : "Texto ou número livre",
-  ]),
-]);
-sheetColunas["!cols"] = [
-  { wch: 8 },
-  { wch: 55 },
-  { wch: 32 },
-  { wch: 12 },
-  { wch: 20 },
-  { wch: 120 },
-];
-
-const sheetInstrucoes = XLSX.utils.aoa_to_sheet([
+const INSTRUCOES = [
   ["Modelo de complemento da base do Cadastro Único — Natal/RN"],
   [],
   ["Como preencher"],
@@ -201,12 +150,70 @@ const sheetInstrucoes = XLSX.utils.aoa_to_sheet([
   [
     "A planilha preenchida contém dados pessoais protegidos pela LGPD. Envie apenas pela aba Fontes de Dados do observatório e não compartilhe por e-mail ou mensagens.",
   ],
-]);
-sheetInstrucoes["!cols"] = [{ wch: 150 }];
+];
 
-const workbook = XLSX.utils.book_new();
-XLSX.utils.book_append_sheet(workbook, sheetInstrucoes, "Instrucoes");
-XLSX.utils.book_append_sheet(workbook, sheetColunas, "Colunas");
-XLSX.utils.book_append_sheet(workbook, sheetTudo, "tudo");
-XLSX.writeFile(workbook, output, { compression: true });
-console.log(`Modelo gerado: ${path.relative(root, output)}`);
+export function buildTemplateWorkbook(): XLSX.WorkBook {
+  const columns = schema.columns;
+  const header = columns.map((column) => column.label);
+  const dataRows = exemplos().map((example) =>
+    columns.map((column) => example[column.index] ?? null),
+  );
+  const sheetTudo = XLSX.utils.aoa_to_sheet([header, ...dataRows], { cellDates: true });
+  for (const column of columns.filter((item) => item.date)) {
+    for (let row = 1; row <= dataRows.length; row++) {
+      const cell = sheetTudo[XLSX.utils.encode_cell({ r: row, c: column.index })];
+      if (cell) cell.z = "dd/mm/yyyy";
+    }
+  }
+  sheetTudo["!cols"] = columns.map((column) => ({
+    wch: Math.min(40, Math.max(12, column.label.length + 2)),
+  }));
+
+  const sheetColunas = XLSX.utils.aoa_to_sheet([
+    [
+      "Coluna",
+      "Cabeçalho (copiar exatamente)",
+      "Campo no CadÚnico",
+      "Obrigatória",
+      "Usada nos indicadores",
+      "Valores aceitos",
+    ],
+    ...columns.map((column) => [
+      column.letter,
+      column.label,
+      column.field ?? "",
+      column.required ? "Sim" : "Não",
+      column.used ? "Sim" : "Não",
+      column.values
+        ? Object.entries(column.values)
+            .map(([code, label]) => `${code} = ${label}`)
+            .join("; ")
+        : column.date
+          ? "Data (dd/mm/aaaa)"
+          : "Texto ou número livre",
+    ]),
+  ]);
+  sheetColunas["!cols"] = [
+    { wch: 8 },
+    { wch: 55 },
+    { wch: 32 },
+    { wch: 12 },
+    { wch: 20 },
+    { wch: 120 },
+  ];
+
+  const sheetInstrucoes = XLSX.utils.aoa_to_sheet(INSTRUCOES);
+  sheetInstrucoes["!cols"] = [{ wch: 150 }];
+
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, sheetInstrucoes, "Instrucoes");
+  XLSX.utils.book_append_sheet(workbook, sheetColunas, "Colunas");
+  XLSX.utils.book_append_sheet(workbook, sheetTudo, "tudo");
+  return workbook;
+}
+
+export function downloadTemplate() {
+  XLSX.writeFile(buildTemplateWorkbook(), "modelo-complemento-cadunico.xlsx", {
+    compression: true,
+  });
+}

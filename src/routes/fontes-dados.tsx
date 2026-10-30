@@ -41,13 +41,13 @@ import {
 } from "@/lib/base-dados-api";
 import {
   COLUMNS,
-  TEMPLATE_URL,
   batchesByFamily,
   downloadAggregatedWorkbook,
   readComplement,
   simplified,
   type ParsedComplement,
 } from "@/lib/cadunico/planilha";
+import { downloadTemplate } from "@/lib/cadunico/modelo";
 import { formatDate, formatValue } from "@/utils/format";
 
 export const Route = createFileRoute("/fontes-dados")({
@@ -312,11 +312,9 @@ function UploadSection({ ready, reason }: { ready: boolean; reason: string | nul
               Aba <strong>tudo</strong> com as 169 colunas na ordem certa, aba{" "}
               <strong>Colunas</strong> com os códigos aceitos e duas linhas fictícias de exemplo.
             </p>
-            <Button variant="outline" size="sm" className="mt-3" asChild>
-              <a href={TEMPLATE_URL} download>
-                <Download className="size-4" aria-hidden />
-                Baixar modelo (.xlsx)
-              </a>
+            <Button variant="outline" size="sm" className="mt-3" onClick={downloadTemplate}>
+              <Download className="size-4" aria-hidden />
+              Baixar modelo (.xlsx)
             </Button>
           </li>
           <li className="rounded-lg border border-border bg-muted/40 p-4">
